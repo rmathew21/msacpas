@@ -95,7 +95,7 @@ export default function Services() {
         <div className="max-w-6xl mx-auto">
           <p className="text-forest-400 text-xs tracking-[0.3em] uppercase mb-4">What We Offer</p>
           <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
-            Areas of Expertise
+            Areas of Focus
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
             From individual tax returns to full-service business accounting, we offer a comprehensive suite of services designed to meet your needs at every stage.

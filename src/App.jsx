@@ -7,7 +7,6 @@ import Services from './pages/Services';
 import Resources from './pages/Resources';
 import Contact from './pages/Contact';
 
-
 export default function App() {
   return (
     <BrowserRouter>
