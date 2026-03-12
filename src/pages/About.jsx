@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'; 
+import aboutImg from '../assets/RajuSamuel.jpg';
 
 const values = [
   {
@@ -30,6 +31,52 @@ export default function About() {
             About Samuel CPA, PLLC
           </h1>
           <div className="w-16 h-px bg-forest-500 mt-8" />
+        </div>
+      </section>
+
+      {/* Principal Bio */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            {/* Photo */}
+            <div className="flex flex-col items-center ">
+              <div className="w-full max-w-sm aspect-[3/4] bg-forest-100 overflow-hidden rounded-xl">
+                <img
+                  src={aboutImg}
+                  alt="Raju Samuel, CPA, CMA"
+                  className="w-full h-full object-cover object-top"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
+                    e.target.parentElement.innerHTML = '<span class="text-forest-400 text-sm tracking-widest uppercase">Photo</span>';
+                  }}
+                />
+              </div>
+              <div className="mt-6 text-center py-4">
+                <p className="text-forest-950 font-serif text-xl">Raju Samuel</p>
+                <p className="text-forest-600 text-xs tracking-[0.2em] uppercase mt-1">CPA, CMA — Principal</p>
+              </div>
+            </div>
+
+            {/* Bio Text */}
+            <div>
+              <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-4">Meet Our Principal</p>
+              <h2 className="text-3xl font-serif text-forest-950 mb-8 leading-tight">
+                Nearly 25 Years of Finance & Accounting Expertise
+              </h2>
+              <div className="prose prose-sm text-gray-700 leading-relaxed space-y-5">
+                <p>
+                  Raju Samuel, CPA, CMA brings nearly 25 years of experience in finance and accounting, including extensive international expertise in both U.S. and Indian tax systems. His background uniquely combines private industry accounting, public accounting in the U.S., and advanced technology skills.
+                </p>
+                <p>
+                  Earlier in his career, Mr. Samuel served as an Accountant at Unilever India and later as Chief Accountant at Qatar Petroleum Corporation in Doha, Qatar. He holds a Master's degree in Accounting and earned both his Certified Public Accountant (CPA) and Certified Management Accountant (CMA) credentials in 2010.
+                </p>
+                <p>
+                  Before co-founding Mathews, Samuel & Associates, Mr. Samuel worked with several reputable local and regional CPA firms in Houston, Texas, where he gained deep expertise in tax planning, compliance, and small business advisory services.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
