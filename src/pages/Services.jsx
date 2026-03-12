@@ -56,10 +56,10 @@ const businessServices = [
     title: 'Cost Report Preparation (Medicare)',
     desc: 'Preparation of Medicare cost reports for healthcare providers, ensuring compliance with CMS requirements and accurate cost allocation.',
   },
-  {
-    title: '1099 vs. W-2 Classification',
-    desc: 'Guidance on properly classifying workers as employees or independent contractors—protecting your business from IRS penalties and employment tax liabilities.',
-  },
+  // {
+  //   title: '1099 vs. W-2 Classification',
+  //   desc: 'Guidance on properly classifying workers as employees or independent contractors—protecting your business from IRS penalties and employment tax liabilities.',
+  // },
 ];
 
 const quickbooksServices = [

@@ -147,10 +147,11 @@ export default function Resources() {
 
       {/* Quick Nav */}
       <section className="bg-forest-800 text-white py-5 px-6 sticky top-16 md:top-20 z-40">
-        <div className="max-w-6xl mx-auto flex flex-wrap gap-6 justify-center md:justify-start">
+        <div className="max-w-6xl mx-auto flex flex-wrap gap-6 justify-center md:justify-center">
           {[
             { label: 'IRS Publications', href: '#publications' },
             { label: 'Tax Organizer', href: '#taxOrganizer' },
+            { label: '1099 vs W-2', href: '#1099vsW2' },
             { label: '2026 Tax Rates', href: '#tax-rates' },
             { label: 'Record Retention', href: '#retention' },
             { label: 'FAQs', href: '#faqs' },
@@ -212,7 +213,129 @@ export default function Resources() {
             </a>
           </div>
       </section>
-      
+              
+      {/* 1099 vs W-2 */}
+<section id="1099vsW2" className="bg-cream py-20 px-6 scroll-mt-32">
+  <div className="max-w-6xl mx-auto">
+    <div className="mb-10">
+      <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">Worker Classification</p>
+      <h2 className="text-3xl md:text-4xl font-serif text-forest-950 mb-4">1099 vs W-2</h2>
+      <p className="text-gray-600 max-w-2xl">
+        With more businesses turning to independent contractors to reduce costs and avoid employee benefits,
+        it's critical to understand how 1099 contractors and W-2 employees differ—not just for IRS compliance,
+        but also for your business's bottom line.
+      </p>
+    </div>
+
+    {/* Key Difference Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+      <div className="bg-white border border-gray-100 p-7">
+        <div className="text-xs tracking-[0.2em] uppercase text-forest-600 font-medium mb-3">W-2 Employee</div>
+        <p className="text-gray-600 text-sm leading-relaxed">
+          Payroll taxes are automatically withheld and submitted to the government by the employer.
+          The employer also pays a share of FICA (Social Security and Medicare) taxes on the employee's behalf.
+        </p>
+      </div>
+      <div className="bg-white border border-gray-100 p-7">
+        <div className="text-xs tracking-[0.2em] uppercase text-forest-600 font-medium mb-3">1099 Independent Contractor</div>
+        <p className="text-gray-600 text-sm leading-relaxed">
+          Responsible for calculating and paying their own taxes, typically on a quarterly basis.
+          They pay self-employment tax covering both the employee and employer portions of FICA.
+        </p>
+      </div>
+    </div>
+
+    {/* Why Classification Matters */}
+    <div className="mb-10">
+      <h3 className="text-xl font-serif text-forest-950 mb-3">Why Classification Matters</h3>
+      <p className="text-gray-600 text-sm leading-relaxed max-w-3xl">
+        Misclassifying workers can result in significant IRS penalties. The <strong>IRS 20-Factor Test</strong> helps
+        determine whether someone is an employee or an independent contractor by focusing on the "right of control."
+        The more control you have over how and when a worker performs their job, the more likely they are to be
+        considered an employee—not a contractor.
+      </p>
+    </div>
+
+    {/* 20-Factor Checklist */}
+    <div className="mb-4">
+      <h3 className="text-xl font-serif text-forest-950 mb-1">IRS 20-Factor Checklist</h3>
+      <p className="text-gray-500 text-sm mb-6">
+        Generally, <span className="text-forest-700 font-medium">No</span> answers to questions 1–16 and{' '}
+        <span className="text-forest-700 font-medium">Yes</span> answers to 17–20 point toward independent contractor status.
+        No single answer is determinative—it's the totality of the relationship.
+      </p>
+
+      <div className="bg-white border border-gray-200 overflow-hidden">
+        <div className="grid grid-cols-[1fr_auto_auto] bg-forest-900 text-white">
+          <div className="px-6 py-3 text-xs tracking-[0.15em] uppercase font-medium">Question</div>
+          <div className="px-6 py-3 text-xs tracking-[0.15em] uppercase font-medium text-center">Employee</div>
+          <div className="px-6 py-3 text-xs tracking-[0.15em] uppercase font-medium text-center">Contractor</div>
+        </div>
+        {[
+          'Do you control how, when, and where the work is done?',
+          'Do you provide training to the worker?',
+          'Is your business reliant on the work being done?',
+          'Must the individual personally complete the work?',
+          'Do you hire, supervise, or pay others to help them?',
+          'Is there an ongoing relationship?',
+          'Are they required to work set hours?',
+          'Are they working full-time for your company?',
+          'Is the work performed at your location?',
+          'Must they follow specific routines or procedures?',
+          'Are they required to submit regular reports?',
+          'Are they paid hourly, weekly, or monthly?',
+          'Do you reimburse them for expenses?',
+          'Do you provide tools, materials, or equipment?',
+          'Have you invested in the facilities where they work?',
+          'Can they incur a profit or loss based on their work?',
+          'Do they work solely for your business?',
+          'Do they avoid offering services to the general public?',
+          'Can you terminate their services at will?',
+          'Can they quit at any time without liability?',
+        ].map((question, i) => {
+          const isContractorYes = i >= 16; // questions 17–20 (0-indexed 16–19)
+          return (
+            <div
+              key={i}
+              className={`grid grid-cols-[1fr_auto_auto] border-b border-gray-100 items-center ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+            >
+              <div className="px-6 py-3 text-sm text-gray-700">
+                <span className="text-forest-400 font-medium mr-2 text-xs">{i + 1}.</span>
+                {question}
+              </div>
+              <div className="px-6 py-3 text-center">
+                <span className={`inline-block text-xs font-bold px-2 py-0.5 rounded ${!isContractorYes ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-gray-400'}`}>
+                  {!isContractorYes ? 'YES' : 'NO'}
+                </span>
+              </div>
+              <div className="px-6 py-3 text-center">
+                <span className={`inline-block text-xs font-bold px-2 py-0.5 rounded ${isContractorYes ? 'bg-forest-100 text-forest-700' : 'bg-gray-100 text-gray-400'}`}>
+                  {isContractorYes ? 'YES' : 'NO'}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    {/* CTA */}
+    <div className="bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6 mt-10">
+      <div>
+        <h3 className="text-xl font-serif mb-2">Still Unsure How to Classify Your Workers?</h3>
+        <p className="text-forest-200 text-sm">
+          Misclassification risks are real and costly. Contact us to get it right.
+        </p>
+      </div>
+      <Link
+        to="/contact"
+        className="whitespace-nowrap bg-forest-500 hover:bg-forest-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
+      >
+        Contact Us
+      </Link>
+    </div>
+  </div>
+</section>
 
       {/* 2026 Tax Rates */}
       <section id="tax-rates" className="bg-white py-20 px-6 scroll-mt-32">
