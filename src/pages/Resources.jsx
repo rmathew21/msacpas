@@ -1,6 +1,18 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+function scrollToSection(id) {
+  const target = document.getElementById(id.replace('#', ''));
+  if (!target) return;
+
+  const stickyNav = document.querySelector('[data-sticky-nav]');
+  const topBar = document.querySelector('header') || document.querySelector('nav');
+
+  const offset = (stickyNav?.offset || 48) + (topBar?.offsetHeight || 64) + 8;
+  const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({ top, behavior: 'smooth' });
+}
 // Accordion Component
 function Accordion({ title, children }) {
   const [open, setOpen] = useState(false);
@@ -146,7 +158,7 @@ export default function Resources() {
       </section>
 
       {/* Quick Nav */}
-      <section className="bg-forest-800 text-white py-5 px-6 sticky top-16 md:top-20 z-40">
+      <section data-sticky-nav className="bg-forest-800 text-white py-5 px-6 sticky top-16 md:top-20 z-40">
         <div className="max-w-6xl mx-auto flex flex-wrap gap-6 justify-center md:justify-center">
           {[
             { label: 'IRS Publications', href: '#publications' },
@@ -156,7 +168,11 @@ export default function Resources() {
             { label: 'Record Retention', href: '#retention' },
             { label: 'FAQs', href: '#faqs' },
           ].map(item => (
-            <a key={item.href} href={item.href} className="text-xs tracking-[0.15em] uppercase text-forest-200 hover:text-white transition-colors">
+            <a 
+              key={item.href} 
+              href={item.href} 
+              onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+              className="text-xs tracking-[0.15em] uppercase text-forest-200 hover:text-white transition-colors">
               {item.label}
             </a>
           ))}
@@ -164,7 +180,7 @@ export default function Resources() {
       </section>
 
       {/* IRS Publications */}
-      <section id="publications" className="bg-cream py-20 px-6 scroll-mt-32">
+      <section id="publications" className="bg-cream py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">IRS Resources</p>
@@ -197,7 +213,7 @@ export default function Resources() {
         </div>
       </section>
 
-      <section id="taxOrganizer" className='scroll-mt-32'>
+      <section id="taxOrganizer">
       <div className="mt-10 bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-serif mb-2">Tax Organizer</h3>
@@ -215,7 +231,7 @@ export default function Resources() {
       </section>
               
       {/* 1099 vs W-2 */}
-<section id="1099vsW2" className="bg-cream py-20 px-6 scroll-mt-32">
+<section id="1099vsW2" className="bg-cream py-20 px-6">
   <div className="max-w-6xl mx-auto">
     <div className="mb-10">
       <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">Worker Classification</p>
@@ -338,7 +354,7 @@ export default function Resources() {
 </section>
 
       {/* 2026 Tax Rates */}
-      <section id="tax-rates" className="bg-white py-20 px-6 scroll-mt-32">
+      <section id="tax-rates" className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">Tax Year 2026</p>
@@ -405,7 +421,7 @@ export default function Resources() {
       </section>
 
       {/* Record Retention Guide */}
-      <section id="retention" className="bg-forest-950 text-white py-20 px-6 scroll-mt-32">
+      <section id="retention" className="bg-forest-950 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.3em] uppercase text-forest-400 mb-3">How Long to Keep Records</p>
@@ -442,7 +458,7 @@ export default function Resources() {
       </section>
 
       {/* FAQs */}
-      <section id="faqs" className="bg-cream py-20 px-6 scroll-mt-32">
+      <section id="faqs" className="bg-cream py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
             <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">Common Questions</p>
