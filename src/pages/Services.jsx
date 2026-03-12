@@ -119,7 +119,7 @@ export default function Services() {
           </div>
 
           {/* Tax Organizer CTA */}
-          <div className="mt-10 bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* <div className="mt-10 bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-serif mb-2">Tax Organizer</h3>
               <p className="text-forest-200 text-sm">Download our tax organizer to gather and organize your documents before your appointment.</p>
@@ -132,7 +132,7 @@ export default function Services() {
             >
               Download PDF
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
 

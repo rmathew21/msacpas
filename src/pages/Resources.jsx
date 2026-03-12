@@ -150,6 +150,7 @@ export default function Resources() {
         <div className="max-w-6xl mx-auto flex flex-wrap gap-6 justify-center md:justify-start">
           {[
             { label: 'IRS Publications', href: '#publications' },
+            { label: 'Tax Organizer', href: '#taxOrganizer' },
             { label: '2026 Tax Rates', href: '#tax-rates' },
             { label: 'Record Retention', href: '#retention' },
             { label: 'FAQs', href: '#faqs' },
@@ -194,6 +195,24 @@ export default function Resources() {
           </p>
         </div>
       </section>
+
+      <section id="taxOrganizer" className='scroll-mt-32'>
+      <div className="mt-10 bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-xl font-serif mb-2">Tax Organizer</h3>
+              <p className="text-forest-200 text-sm">Download our tax organizer to gather and organize your documents before your appointment.</p>
+            </div>
+            <a
+              href="https://oriole-point-wx69.squarespace.com/s/MSACPAsTaxOrganizer.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whitespace-nowrap bg-forest-500 hover:bg-forest-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
+            >
+              Download PDF
+            </a>
+          </div>
+      </section>
+      
 
       {/* 2026 Tax Rates */}
       <section id="tax-rates" className="bg-white py-20 px-6 scroll-mt-32">
