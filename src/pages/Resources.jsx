@@ -8,7 +8,7 @@ function scrollToSection(id) {
   const stickyNav = document.querySelector('[data-sticky-nav]');
   const topBar = document.querySelector('header') || document.querySelector('nav');
 
-  const offset = (stickyNav?.offset || 48) + (topBar?.offsetHeight || 64) + 8;
+  const offset = (stickyNav?.offsetHeight || 48) + (topBar?.offsetHeight || 64) + 8;
   const top = target.getBoundingClientRect().top + window.scrollY - offset;
 
   window.scrollTo({ top, behavior: 'smooth' });
@@ -213,7 +213,7 @@ export default function Resources() {
         </div>
       </section>
 
-      <section id="taxOrganizer">
+      <section id="taxOrganizer" className='scroll-mt-32 mt-10'>
       <div className="mt-10 bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-serif mb-2">Tax Organizer</h3>
