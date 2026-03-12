@@ -52,7 +52,7 @@ export default function About() {
                   }}
                 />
               </div>
-              <div className="mt-6 text-center py-4">
+              <div className="mt-6 text-center py-2">
                 <p className="text-forest-950 font-serif text-xl">Raju Samuel</p>
                 <p className="text-forest-600 text-xs tracking-[0.2em] uppercase mt-1">CPA, CMA — Principal</p>
               </div>
