@@ -62,20 +62,20 @@ const businessServices = [
   // },
 ];
 
-const quickbooksServices = [
-  {
-    title: 'QuickBooks Setup & Customization',
-    desc: 'Complete QuickBooks Online or Desktop setup tailored to your business type—including chart of accounts, templates, integrations, and user access configuration.',
-  },
-  {
-    title: 'QuickBooks Training',
-    desc: 'One-on-one training sessions to help you and your team get the most out of QuickBooks, from basic data entry to generating reports and managing payroll.',
-  },
-  {
-    title: 'Ongoing QuickBooks Support',
-    desc: 'Ongoing consulting and troubleshooting to keep your QuickBooks running smoothly, data clean, and reports accurate.',
-  },
-];
+// const quickbooksServices = [
+//   {
+//     title: 'QuickBooks Setup & Customization',
+//     desc: 'Complete QuickBooks Online or Desktop setup tailored to your business type—including chart of accounts, templates, integrations, and user access configuration.',
+//   },
+//   {
+//     title: 'QuickBooks Training',
+//     desc: 'One-on-one training sessions to help you and your team get the most out of QuickBooks, from basic data entry to generating reports and managing payroll.',
+//   },
+//   {
+//     title: 'Ongoing QuickBooks Support',
+//     desc: 'Ongoing consulting and troubleshooting to keep your QuickBooks running smoothly, data clean, and reports accurate.',
+//   },
+// ];
 
 function ServiceCard({ title, desc }) {
   return (
@@ -109,7 +109,7 @@ export default function Services() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-6 mb-12">
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-2">Category 01</p>
+              {/* <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-2">Category 01</p> */}
               <h2 className="text-3xl md:text-4xl font-serif text-forest-950">Tax Services</h2>
             </div>
             <div className="flex-1 h-px bg-forest-100 hidden md:block" />
@@ -141,7 +141,7 @@ export default function Services() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-6 mb-12">
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-2">Category 02</p>
+              {/* <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-2">Category 02</p> */}
               <h2 className="text-3xl md:text-4xl font-serif text-forest-950">Business Services</h2>
             </div>
             <div className="flex-1 h-px bg-gray-100 hidden md:block" />
@@ -153,7 +153,7 @@ export default function Services() {
       </section>
 
       {/* QuickBooks Services */}
-      <section className="bg-forest-50 py-20 px-6">
+      {/* <section className="bg-forest-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-6 mb-12">
             <div>
@@ -166,7 +166,7 @@ export default function Services() {
             {quickbooksServices.map((s, i) => <ServiceCard key={i} {...s} />)}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Becoming a Client */}
       <section className="bg-forest-950 text-white py-20 px-6">
