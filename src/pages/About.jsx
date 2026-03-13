@@ -62,17 +62,17 @@ export default function About() {
             <div>
               <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-4">Meet Our Principal</p>
               <h2 className="text-3xl font-serif text-forest-950 mb-8 leading-tight">
-                Nearly 25 Years of Finance & Accounting Expertise
+                Nearly 25 Years of Finance & Accounting Experience
               </h2>
               <div className="prose prose-sm text-gray-700 leading-relaxed space-y-5">
                 <p>
-                  Raju Samuel, CPA, CMA brings nearly 25 years of experience in finance and accounting, including extensive international expertise in both U.S. and Indian tax systems. His background uniquely combines private industry accounting, public accounting in the U.S., and advanced technology skills.
+                  Raju Samuel, CPA, CMA brings nearly 25 years of experience in finance and accounting, including extensive international experience in both U.S. and Indian tax systems. His background uniquely combines private industry accounting, public accounting in the U.S., and advanced technology skills.
                 </p>
                 <p>
                   Earlier in his career, Mr. Samuel served as an Accountant at Unilever India and later as Chief Accountant at Qatar Petroleum Corporation in Doha, Qatar. He holds a Master's degree in Accounting and earned both his Certified Public Accountant (CPA) and Certified Management Accountant (CMA) credentials in 2010.
                 </p>
                 <p>
-                  Before co-founding Mathews, Samuel & Associates, Mr. Samuel worked with several reputable local and regional CPA firms in Houston, Texas, where he gained deep expertise in tax planning, compliance, and small business advisory services.
+                  Before co-founding Mathews, Samuel & Associates, Mr. Samuel worked with several reputable local and regional CPA firms in Houston, Texas, where he gained deep knowledge in tax planning, compliance, and small business advisory services.
                 </p>
               </div>
             </div>
