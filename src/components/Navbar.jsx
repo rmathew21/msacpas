@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import logo1 from '../assets/msacpaLogo1.svg';
+import logo2 from '../assets/msacpaLogo2.svg';
+import logo3 from '../assets/msacpaLogo3.svg';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,10 +32,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex flex-col leading-none">
+          <Link to="/">
+            <img src={logo2} alt="Samuel CPA logo" className='h-10 md:h-12 w-auto' />
+          </Link>
+
+          {/* <Link to="/" className="flex flex-col leading-none">
             <span className="text-forest-800 font-serif text-lg font-bold tracking-tight">Samuel CPA</span>
             <span className="text-sage-500 text-xs tracking-[0.2em] uppercase">PLLC</span>
-          </Link>
+          </Link> */}
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
