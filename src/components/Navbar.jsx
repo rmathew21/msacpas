@@ -3,6 +3,9 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import logo1 from '../assets/msacpaLogo1.svg';
 import logo2 from '../assets/msacpaLogo2.svg';
 import logo3 from '../assets/msacpaLogo3.svg';
+import logo4 from '../assets/msacpaLogo4.svg';
+import logo5 from '../assets/msacpaLogo5.svg';
+import logo6 from '../assets/msacpaLogo6.svg';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,12 +31,12 @@ export default function Navbar() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm' : 'bg-white/95'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm' : 'bg-white'}`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/">
-            <img src={logo2} alt="Samuel CPA logo" className='h-10 md:h-12 w-auto' />
+            <img src={logo5} alt="Samuel CPA logo" className='h-10 md:h-12 w-auto' />
           </Link>
 
           {/* <Link to="/" className="flex flex-col leading-none">
