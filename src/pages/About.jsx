@@ -24,13 +24,13 @@ export default function About() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="bg-forest-950 text-white py-24 px-6">
+      <section className="bg-royal-950 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-forest-400 text-xs tracking-[0.3em] uppercase mb-4">Our Story</p>
+          <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">Our Story</p>
           <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             About Samuel CPA, PLLC
           </h1>
-          <div className="w-16 h-px bg-forest-500 mt-8" />
+          <div className="w-16 h-px bg-royal-500 mt-8" />
         </div>
       </section>
 
@@ -40,7 +40,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             {/* Photo */}
             <div className="flex flex-col items-center ">
-              <div className="w-full max-w-sm aspect-[3/4] bg-forest-100 overflow-hidden rounded-xl">
+              <div className="w-full max-w-sm aspect-[3/4] bg-royal-100 overflow-hidden rounded-xl">
                 <img
                   src={aboutImg}
                   alt="Raju Samuel, CPA, CMA"
@@ -48,20 +48,20 @@ export default function About() {
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
-                    e.target.parentElement.innerHTML = '<span class="text-forest-400 text-sm tracking-widest uppercase">Photo</span>';
+                    e.target.parentElement.innerHTML = '<span class="text-royal-400 text-sm tracking-widest uppercase">Photo</span>';
                   }}
                 />
               </div>
               <div className="mt-6 text-center py-2">
-                <p className="text-forest-950 font-serif text-xl">Raju Samuel</p>
-                <p className="text-forest-600 text-xs tracking-[0.2em] uppercase mt-1">CPA, CMA — Principal</p>
+                <p className="text-royal-950 font-serif text-xl">Raju Samuel</p>
+                <p className="text-royal-600 text-xs tracking-[0.2em] uppercase mt-1">CPA, CMA — Principal</p>
               </div>
             </div>
 
             {/* Bio Text */}
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-4">Meet Our Principal</p>
-              <h2 className="text-3xl font-serif text-forest-950 mb-8 leading-tight">
+              <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">Meet Our Principal</p>
+              <h2 className="text-3xl font-serif text-royal-950 mb-8 leading-tight">
                 Nearly 25 Years of Finance & Accounting Experience
               </h2>
               <div className="prose prose-sm text-gray-700 leading-relaxed space-y-5">
@@ -84,8 +84,8 @@ export default function About() {
       <section className="bg-cream py-20 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-4">Who We Are</p>
-            <h2 className="text-3xl font-serif text-forest-950 mb-8 leading-tight">
+            <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">Who We Are</p>
+            <h2 className="text-3xl font-serif text-royal-950 mb-8 leading-tight">
               Trusted Financial Partners Since 2013
             </h2>
             <div className="prose prose-sm text-gray-700 leading-relaxed space-y-5">
@@ -101,8 +101,8 @@ export default function About() {
             </div>
           </div>
 
-          <div className="bg-forest-900 text-white p-10">
-            <h3 className="text-2xl font-serif text-forest-300 mb-8">At a Glance</h3>
+          <div className="bg-royal-900 text-white p-10">
+            <h3 className="text-2xl font-serif text-royal-300 mb-8">At a Glance</h3>
             <div className="space-y-6">
               {[
                 { label: 'Founded', value: '2013' },
@@ -112,8 +112,8 @@ export default function About() {
                 { label: 'Phone', value: '(281) 564-9500' },
                 { label: 'Email', value: 'samuel@msacpas.com' },
               ].map(item => (
-                <div key={item.label} className="border-b border-forest-800 pb-4">
-                  <div className="text-forest-400 text-xs tracking-[0.15em] uppercase mb-1">{item.label}</div>
+                <div key={item.label} className="border-b border-royal-800 pb-4">
+                  <div className="text-royal-400 text-xs tracking-[0.15em] uppercase mb-1">{item.label}</div>
                   <div className="text-gray-200 text-sm">{item.value}</div>
                 </div>
               ))}
@@ -123,10 +123,10 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="bg-forest-800 text-white py-20 px-6">
+      <section className="bg-royal-800 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-forest-400 text-xs tracking-[0.3em] uppercase mb-6">Our Mission</p>
-          <blockquote className="text-2xl md:text-3xl font-serif leading-relaxed italic text-forest-100">
+          <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-6">Our Mission</p>
+          <blockquote className="text-2xl md:text-3xl font-serif leading-relaxed italic text-royal-100">
             "To advocate for small businesses and individual clients by delivering precision accounting services that provide real peace of mind—and a clear path forward."
           </blockquote>
         </div>
@@ -136,13 +136,13 @@ export default function About() {
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-4">What Drives Us</p>
-            <h2 className="text-4xl font-serif text-forest-950">Our Core Values</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">What Drives Us</p>
+            <h2 className="text-4xl font-serif text-royal-950">Our Core Values</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {values.map((v, i) => (
-              <div key={i} className="border-l-4 border-forest-500 pl-6 py-2">
-                <h3 className="text-xl font-serif text-forest-900 mb-3">{v.title}</h3>
+              <div key={i} className="border-l-4 border-royal-500 pl-6 py-2">
+                <h3 className="text-xl font-serif text-royal-900 mb-3">{v.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{v.desc}</p>
               </div>
             ))}
@@ -151,11 +151,11 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="bg-forest-950 text-white py-16 px-6">
+      <section className="bg-royal-950 text-white py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-serif mb-6">Ready to Work Together?</h2>
           <p className="text-gray-400 mb-8">Schedule a consultation and discover how Samuel CPA PLLC can serve your financial needs.</p>
-          <Link to="/contact" className="inline-block bg-forest-600 hover:bg-forest-500 text-white px-10 py-4 text-xs tracking-widest uppercase font-medium transition-colors">
+          <Link to="/contact" className="inline-block bg-royal-600 hover:bg-royal-500 text-white px-10 py-4 text-xs tracking-widest uppercase font-medium transition-colors">
             Get in Touch
           </Link>
         </div>

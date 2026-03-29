@@ -40,8 +40,8 @@ export default function Navbar() {
           </Link>
 
           {/* <Link to="/" className="flex flex-col leading-none">
-            <span className="text-forest-800 font-serif text-lg font-bold tracking-tight">Samuel CPA</span>
-            <span className="text-sage-500 text-xs tracking-[0.2em] uppercase">PLLC</span>
+            <span className="text-royal-800 font-serif text-lg font-bold tracking-tight">Samuel CPA</span>
+            <span className="text-slate-500 text-xs tracking-[0.2em] uppercase">PLLC</span>
           </Link> */}
 
           {/* Desktop Nav */}
@@ -53,8 +53,8 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `text-xs tracking-[0.15em] uppercase font-medium transition-colors duration-200 pb-0.5 border-b-2 ${
                     isActive
-                      ? 'text-forest-700 border-forest-600'
-                      : 'text-gray-600 border-transparent hover:text-forest-700 hover:border-forest-300'
+                      ? 'text-royal-700 border-royal-600'
+                      : 'text-gray-600 border-transparent hover:text-royal-700 hover:border-royal-300'
                   }`
                 }
               >
@@ -64,7 +64,7 @@ export default function Navbar() {
           </nav>
 
           {/* Phone CTA */}
-          <a href="tel:2815649500" className="hidden md:flex items-center gap-2 text-forest-700 text-sm font-medium hover:text-forest-900 transition-colors">
+          <a href="tel:2815649500" className="hidden md:flex items-center gap-2 text-royal-700 text-sm font-medium hover:text-royal-900 transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
@@ -74,7 +74,7 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 text-forest-800"
+            className="md:hidden p-2 text-royal-800"
             aria-label="Toggle menu"
           >
             <div className="w-6 flex flex-col gap-1.5">
@@ -95,14 +95,14 @@ export default function Navbar() {
               to={l.to}
               className={({ isActive }) =>
                 `text-sm tracking-widest uppercase font-medium py-2 border-b border-gray-50 ${
-                  isActive ? 'text-forest-700' : 'text-gray-600'
+                  isActive ? 'text-royal-700' : 'text-gray-600'
                 }`
               }
             >
               {l.label}
             </NavLink>
           ))}
-          <a href="tel:2815649500" className="text-forest-700 text-sm font-medium pt-2">(281) 564-9500</a>
+          <a href="tel:2815649500" className="text-royal-700 text-sm font-medium pt-2">(281) 564-9500</a>
         </nav>
       </div>
     </header>

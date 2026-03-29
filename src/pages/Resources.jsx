@@ -22,8 +22,8 @@ function Accordion({ title, children }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors"
       >
-        <span className="font-serif text-forest-950 text-lg pr-4">{title}</span>
-        <span className={`text-forest-600 flex-shrink-0 transition-transform duration-300 ${open ? 'rotate-45' : ''}`}>
+        <span className="font-serif text-royal-950 text-lg pr-4">{title}</span>
+        <span className={`text-royal-600 flex-shrink-0 transition-transform duration-300 ${open ? 'rotate-45' : ''}`}>
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
           </svg>
@@ -144,21 +144,21 @@ export default function Resources() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="bg-forest-950 text-white py-24 px-6">
+      <section className="bg-royal-950 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-forest-400 text-xs tracking-[0.3em] uppercase mb-4">Helpful Information</p>
+          <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">Helpful Information</p>
           <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             Resources
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
             Access IRS publications, 2026 tax rates, and our record retention guide—everything you need to stay organized and informed.
           </p>
-          <div className="w-16 h-px bg-forest-500 mt-8" />
+          <div className="w-16 h-px bg-royal-500 mt-8" />
         </div>
       </section>
 
       {/* Quick Nav */}
-      <section data-sticky-nav className="bg-forest-800 text-white py-5 px-6 sticky top-16 md:top-20 z-40">
+      <section data-sticky-nav className="bg-royal-800 text-white py-5 px-6 sticky top-16 md:top-20 z-40">
         <div className="max-w-6xl mx-auto flex flex-wrap gap-6 justify-center md:justify-center">
           {[
             { label: 'IRS Publications', href: '#publications' },
@@ -172,7 +172,7 @@ export default function Resources() {
               key={item.href} 
               href={item.href} 
               onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-              className="text-xs tracking-[0.15em] uppercase text-forest-200 hover:text-white transition-colors">
+              className="text-xs tracking-[0.15em] uppercase text-royal-200 hover:text-white transition-colors">
               {item.label}
             </a>
           ))}
@@ -183,8 +183,8 @@ export default function Resources() {
       <section id="publications" className="bg-cream py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
-            <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">IRS Resources</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-forest-950 mb-4">Tax Forms & Publications</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-3">IRS Resources</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-royal-950 mb-4">Tax Forms & Publications</h2>
             <p className="text-gray-600 max-w-2xl">Easily access and print any IRS tax form or publication—no need for mail requests or post office visits. Click any publication below to open the PDF directly from the IRS website.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -194,11 +194,11 @@ export default function Resources() {
                 href={pub.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white border border-gray-100 p-5 hover:border-forest-300 hover:shadow-md transition-all duration-200 group flex items-start gap-4"
+                className="bg-white border border-gray-100 p-5 hover:border-royal-300 hover:shadow-md transition-all duration-200 group flex items-start gap-4"
               >
-                <div className="bg-forest-100 text-forest-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0 group-hover:bg-forest-200 transition-colors">PDF</div>
+                <div className="bg-royal-100 text-royal-700 text-xs font-bold px-2 py-1 rounded flex-shrink-0 group-hover:bg-royal-200 transition-colors">PDF</div>
                 <div>
-                  <div className="text-xs text-forest-600 font-medium mb-1">{pub.pub}</div>
+                  <div className="text-xs text-royal-600 font-medium mb-1">{pub.pub}</div>
                   <div className="text-sm text-gray-800 font-medium leading-snug">{pub.title}</div>
                 </div>
               </a>
@@ -206,7 +206,7 @@ export default function Resources() {
           </div>
           <p className="text-gray-400 text-xs mt-6 text-center">
             Need a form not listed? Visit the{' '}
-            <a href="https://www.irs.gov/forms-instructions" target="_blank" rel="noopener noreferrer" className="text-forest-600 hover:underline">
+            <a href="https://www.irs.gov/forms-instructions" target="_blank" rel="noopener noreferrer" className="text-royal-600 hover:underline">
               IRS Forms & Instructions library
             </a>
           </p>
@@ -214,16 +214,16 @@ export default function Resources() {
       </section>
 
       <section id="taxOrganizer" className='scroll-mt-32 mt-10'>
-      <div className="mt-10 bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="mt-10 bg-royal-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-serif mb-2">Tax Organizer</h3>
-              <p className="text-forest-200 text-sm">Download our tax organizer to gather and organize your documents before your appointment.</p>
+              <p className="text-royal-200 text-sm">Download our tax organizer to gather and organize your documents before your appointment.</p>
             </div>
             <a
               href="https://oriole-point-wx69.squarespace.com/s/MSACPAsTaxOrganizer.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="whitespace-nowrap bg-forest-500 hover:bg-forest-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
+              className="whitespace-nowrap bg-royal-500 hover:bg-royal-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
             >
               Download PDF
             </a>
@@ -234,8 +234,8 @@ export default function Resources() {
 <section id="1099vsW2" className="bg-cream py-20 px-6">
   <div className="max-w-6xl mx-auto">
     <div className="mb-10">
-      <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">Worker Classification</p>
-      <h2 className="text-3xl md:text-4xl font-serif text-forest-950 mb-4">1099 vs W-2</h2>
+      <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-3">Worker Classification</p>
+      <h2 className="text-3xl md:text-4xl font-serif text-royal-950 mb-4">1099 vs W-2</h2>
       <p className="text-gray-600 max-w-2xl">
         With more businesses turning to independent contractors to reduce costs and avoid employee benefits,
         it's critical to understand how 1099 contractors and W-2 employees differ—not just for IRS compliance,
@@ -246,14 +246,14 @@ export default function Resources() {
     {/* Key Difference Cards */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
       <div className="bg-white border border-gray-100 p-7">
-        <div className="text-xs tracking-[0.2em] uppercase text-forest-600 font-medium mb-3">W-2 Employee</div>
+        <div className="text-xs tracking-[0.2em] uppercase text-royal-600 font-medium mb-3">W-2 Employee</div>
         <p className="text-gray-600 text-sm leading-relaxed">
           Payroll taxes are automatically withheld and submitted to the government by the employer.
           The employer also pays a share of FICA (Social Security and Medicare) taxes on the employee's behalf.
         </p>
       </div>
       <div className="bg-white border border-gray-100 p-7">
-        <div className="text-xs tracking-[0.2em] uppercase text-forest-600 font-medium mb-3">1099 Independent Contractor</div>
+        <div className="text-xs tracking-[0.2em] uppercase text-royal-600 font-medium mb-3">1099 Independent Contractor</div>
         <p className="text-gray-600 text-sm leading-relaxed">
           Responsible for calculating and paying their own taxes, typically on a quarterly basis.
           They pay self-employment tax covering both the employee and employer portions of FICA.
@@ -263,7 +263,7 @@ export default function Resources() {
 
     {/* Why Classification Matters */}
     <div className="mb-10">
-      <h3 className="text-xl font-serif text-forest-950 mb-3">Why Classification Matters</h3>
+      <h3 className="text-xl font-serif text-royal-950 mb-3">Why Classification Matters</h3>
       <p className="text-gray-600 text-sm leading-relaxed max-w-3xl">
         Misclassifying workers can result in significant IRS penalties. The <strong>IRS 20-Factor Test</strong> helps
         determine whether someone is an employee or an independent contractor by focusing on the "right of control."
@@ -274,15 +274,15 @@ export default function Resources() {
 
     {/* 20-Factor Checklist */}
     <div className="mb-4">
-      <h3 className="text-xl font-serif text-forest-950 mb-1">IRS 20-Factor Checklist</h3>
+      <h3 className="text-xl font-serif text-royal-950 mb-1">IRS 20-Factor Checklist</h3>
       <p className="text-gray-500 text-sm mb-6">
-        Generally, <span className="text-forest-700 font-medium">No</span> answers to questions 1–16 and{' '}
-        <span className="text-forest-700 font-medium">Yes</span> answers to 17–20 point toward independent contractor status.
+        Generally, <span className="text-royal-700 font-medium">No</span> answers to questions 1–16 and{' '}
+        <span className="text-royal-700 font-medium">Yes</span> answers to 17–20 point toward independent contractor status.
         No single answer is determinative—it's the totality of the relationship.
       </p>
 
       <div className="bg-white border border-gray-200 overflow-hidden">
-        <div className="grid grid-cols-[1fr_auto_auto] bg-forest-900 text-white">
+        <div className="grid grid-cols-[1fr_auto_auto] bg-royal-900 text-white">
           <div className="px-6 py-3 text-xs tracking-[0.15em] uppercase font-medium">Question</div>
           <div className="px-6 py-3 text-xs tracking-[0.15em] uppercase font-medium text-center">Employee</div>
           <div className="px-6 py-3 text-xs tracking-[0.15em] uppercase font-medium text-center">Contractor</div>
@@ -316,7 +316,7 @@ export default function Resources() {
               className={`grid grid-cols-[1fr_auto_auto] border-b border-gray-100 items-center ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
             >
               <div className="px-6 py-3 text-sm text-gray-700">
-                <span className="text-forest-400 font-medium mr-2 text-xs">{i + 1}.</span>
+                <span className="text-royal-400 font-medium mr-2 text-xs">{i + 1}.</span>
                 {question}
               </div>
               <div className="px-6 py-3 text-center">
@@ -325,7 +325,7 @@ export default function Resources() {
                 </span>
               </div>
               <div className="px-6 py-3 text-center">
-                <span className={`inline-block text-xs font-bold px-2 py-0.5 rounded ${isContractorYes ? 'bg-forest-100 text-forest-700' : 'bg-gray-100 text-gray-400'}`}>
+                <span className={`inline-block text-xs font-bold px-2 py-0.5 rounded ${isContractorYes ? 'bg-royal-100 text-royal-700' : 'bg-gray-100 text-gray-400'}`}>
                   {isContractorYes ? 'YES' : 'NO'}
                 </span>
               </div>
@@ -336,16 +336,16 @@ export default function Resources() {
     </div>
 
     {/* CTA */}
-    <div className="bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6 mt-10">
+    <div className="bg-royal-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6 mt-10">
       <div>
         <h3 className="text-xl font-serif mb-2">Still Unsure How to Classify Your Workers?</h3>
-        <p className="text-forest-200 text-sm">
+        <p className="text-royal-200 text-sm">
           Misclassification risks are real and costly. Contact us to get it right.
         </p>
       </div>
       <Link
         to="/contact"
-        className="whitespace-nowrap bg-forest-500 hover:bg-forest-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
+        className="whitespace-nowrap bg-royal-500 hover:bg-royal-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
       >
         Contact Us
       </Link>
@@ -357,8 +357,8 @@ export default function Resources() {
       <section id="tax-rates" className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
-            <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">Tax Year 2026</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-forest-950 mb-4">Federal Income Tax Rates</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-3">Tax Year 2026</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-royal-950 mb-4">Federal Income Tax Rates</h2>
             <p className="text-gray-600 max-w-2xl">Stay up to date with the latest federal income tax brackets for 2026. These rates apply to taxable income after deductions.</p>
           </div>
 
@@ -366,13 +366,13 @@ export default function Resources() {
           <div className="flex gap-2 mb-8">
             <button
               onClick={() => setBracketView('single')}
-              className={`px-5 py-2 text-xs tracking-widest uppercase font-medium transition-colors ${bracketView === 'single' ? 'bg-forest-700 text-white' : 'border border-gray-200 text-gray-600 hover:border-forest-400'}`}
+              className={`px-5 py-2 text-xs tracking-widest uppercase font-medium transition-colors ${bracketView === 'single' ? 'bg-royal-700 text-white' : 'border border-gray-200 text-gray-600 hover:border-royal-400'}`}
             >
               Single Filers
             </button>
             <button
               onClick={() => setBracketView('mfj')}
-              className={`px-5 py-2 text-xs tracking-widest uppercase font-medium transition-colors ${bracketView === 'mfj' ? 'bg-forest-700 text-white' : 'border border-gray-200 text-gray-600 hover:border-forest-400'}`}
+              className={`px-5 py-2 text-xs tracking-widest uppercase font-medium transition-colors ${bracketView === 'mfj' ? 'bg-royal-700 text-white' : 'border border-gray-200 text-gray-600 hover:border-royal-400'}`}
             >
               Married Filing Jointly
             </button>
@@ -381,7 +381,7 @@ export default function Resources() {
           <div className="overflow-hidden border border-gray-200">
             <table className="w-full">
               <thead>
-                <tr className="bg-forest-900 text-white">
+                <tr className="bg-royal-900 text-white">
                   <th className="text-left px-6 py-4 text-xs tracking-[0.15em] uppercase font-medium">Tax Rate</th>
                   <th className="text-left px-6 py-4 text-xs tracking-[0.15em] uppercase font-medium">Taxable Income Range</th>
                 </tr>
@@ -389,7 +389,7 @@ export default function Resources() {
               <tbody>
                 {taxBrackets2026[bracketView].map((row, i) => (
                   <tr key={i} className={`border-b border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
-                    <td className="px-6 py-4 font-medium text-forest-700">{row.rate}</td>
+                    <td className="px-6 py-4 font-medium text-royal-700">{row.rate}</td>
                     <td className="px-6 py-4 text-gray-700">{row.range}</td>
                   </tr>
                 ))}
@@ -407,9 +407,9 @@ export default function Resources() {
               { label: 'Long-Term Capital Gains – 15%', value: '$48,351 – $533,400 (Single)' },
               { label: 'Long-Term Capital Gains – 20%', value: 'Over $533,400 (Single)' },
             ].map((item, i) => (
-              <div key={i} className="bg-forest-50 border border-forest-100 p-5">
-                <div className="text-xs text-forest-600 tracking-wide uppercase mb-2">{item.label}</div>
-                <div className="text-xl font-serif text-forest-900 font-bold">{item.value}</div>
+              <div key={i} className="bg-royal-50 border border-royal-100 p-5">
+                <div className="text-xs text-royal-600 tracking-wide uppercase mb-2">{item.label}</div>
+                <div className="text-xl font-serif text-royal-900 font-bold">{item.value}</div>
               </div>
             ))}
           </div>
@@ -421,25 +421,25 @@ export default function Resources() {
       </section>
 
       {/* Record Retention Guide */}
-      <section id="retention" className="bg-forest-950 text-white py-20 px-6">
+      <section id="retention" className="bg-royal-950 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
-            <p className="text-xs tracking-[0.3em] uppercase text-forest-400 mb-3">How Long to Keep Records</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-forest-100 mb-4">Record Retention Guide</h2>
-            <p className="text-forest-300 max-w-2xl">Use this guide to determine how long you need to keep your tax and other financial records. When in doubt, keep it longer—or consult with us.</p>
+            <p className="text-xs tracking-[0.3em] uppercase text-royal-400 mb-3">How Long to Keep Records</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-royal-100 mb-4">Record Retention Guide</h2>
+            <p className="text-royal-300 max-w-2xl">Use this guide to determine how long you need to keep your tax and other financial records. When in doubt, keep it longer—or consult with us.</p>
           </div>
 
           <div className="space-y-8">
             {retentionGuide.map((group, gi) => (
               <div key={gi}>
-                <h3 className="text-forest-400 text-xs tracking-[0.2em] uppercase font-medium mb-4 border-b border-forest-900 pb-3">{group.category}</h3>
+                <h3 className="text-royal-400 text-xs tracking-[0.2em] uppercase font-medium mb-4 border-b border-royal-900 pb-3">{group.category}</h3>
                 <div className="overflow-hidden rounded-sm">
                   <table className="w-full">
                     <tbody>
                       {group.items.map((item, ii) => (
-                        <tr key={ii} className={`border-b border-forest-900 ${ii % 2 === 0 ? 'bg-forest-900/40' : 'bg-transparent'}`}>
+                        <tr key={ii} className={`border-b border-royal-900 ${ii % 2 === 0 ? 'bg-royal-900/40' : 'bg-transparent'}`}>
                           <td className="px-5 py-3 text-sm text-gray-300">{item.record}</td>
-                          <td className="px-5 py-3 text-sm text-forest-300 font-medium text-right whitespace-nowrap">{item.retention}</td>
+                          <td className="px-5 py-3 text-sm text-royal-300 font-medium text-right whitespace-nowrap">{item.retention}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -449,8 +449,8 @@ export default function Resources() {
             ))}
           </div>
 
-          <div className="bg-forest-800 border border-forest-700 mt-10 p-6">
-            <p className="text-forest-200 text-sm leading-relaxed">
+          <div className="bg-royal-800 border border-royal-700 mt-10 p-6">
+            <p className="text-royal-200 text-sm leading-relaxed">
               <strong className="text-white">Important Note:</strong> These are general guidelines. The IRS generally has 3 years to audit a return, but this extends to 6 years if substantial income was omitted, and there's no limit for fraud. Always consult with a qualified tax professional before destroying records.
             </p>
           </div>
@@ -461,8 +461,8 @@ export default function Resources() {
       <section id="faqs" className="bg-cream py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
-            <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-3">Common Questions</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-forest-950 mb-4">Frequently Asked Questions</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-3">Common Questions</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-royal-950 mb-4">Frequently Asked Questions</h2>
           </div>
 
           <div className="space-y-3">
@@ -481,7 +481,7 @@ export default function Resources() {
                 <li>Records of any estimated tax payments made</li>
                 <li>Bank account information for direct deposit of refund</li>
               </ul>
-              <p className="mt-3">Download our <a href="https://oriole-point-wx69.squarespace.com/s/MSACPAsTaxOrganizer.pdf" target="_blank" rel="noopener noreferrer" className="text-forest-600 hover:underline font-medium">Tax Organizer</a> for a complete checklist.</p>
+              <p className="mt-3">Download our <a href="https://oriole-point-wx69.squarespace.com/s/MSACPAsTaxOrganizer.pdf" target="_blank" rel="noopener noreferrer" className="text-royal-600 hover:underline font-medium">Tax Organizer</a> for a complete checklist.</p>
             </Accordion>
 
             <Accordion title="What is the difference between a W-2 employee and a 1099 contractor?">
@@ -505,13 +505,13 @@ export default function Resources() {
             </Accordion>
 
             <Accordion title="How do I track my tax refund?">
-              <p>You can check the status of your federal refund using the IRS's official "Where's My Refund?" tool at <a href="https://www.irs.gov/refunds" target="_blank" rel="noopener noreferrer" className="text-forest-600 hover:underline font-medium">irs.gov/refunds</a>. You'll need your Social Security number, filing status, and exact refund amount. Most refunds are issued within 21 days for e-filed returns.</p>
+              <p>You can check the status of your federal refund using the IRS's official "Where's My Refund?" tool at <a href="https://www.irs.gov/refunds" target="_blank" rel="noopener noreferrer" className="text-royal-600 hover:underline font-medium">irs.gov/refunds</a>. You'll need your Social Security number, filing status, and exact refund amount. Most refunds are issued within 21 days for e-filed returns.</p>
             </Accordion>
           </div>
 
           <div className="mt-12 text-center">
             <p className="text-gray-500 mb-6">Have a question not answered here?</p>
-            <Link to="/contact" className="inline-block bg-forest-700 text-white px-8 py-3 text-xs tracking-widest uppercase font-medium hover:bg-forest-800 transition-colors">
+            <Link to="/contact" className="inline-block bg-royal-700 text-white px-8 py-3 text-xs tracking-widest uppercase font-medium hover:bg-royal-800 transition-colors">
               Ask Us Directly
             </Link>
           </div>

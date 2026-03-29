@@ -79,9 +79,9 @@ const businessServices = [
 
 function ServiceCard({ title, desc }) {
   return (
-    <div className="bg-white border border-gray-100 p-6 hover:border-forest-200 hover:shadow-sm transition-all duration-200">
-      <div className="w-8 h-px bg-forest-500 mb-4" />
-      <h3 className="text-lg font-serif text-forest-950 mb-3">{title}</h3>
+    <div className="bg-white border border-gray-100 p-6 hover:border-royal-200 hover:shadow-sm transition-all duration-200">
+      <div className="w-8 h-px bg-royal-500 mb-4" />
+      <h3 className="text-lg font-serif text-royal-950 mb-3">{title}</h3>
       <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
     </div>
   );
@@ -91,16 +91,16 @@ export default function Services() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="bg-forest-950 text-white py-24 px-6">
+      <section className="bg-royal-950 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-forest-400 text-xs tracking-[0.3em] uppercase mb-4">What We Offer</p>
+          <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">What We Offer</p>
           <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             Areas of Focus
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
             From individual tax returns to full-service business accounting, we offer a comprehensive suite of services designed to meet your needs at every stage.
           </p>
-          <div className="w-16 h-px bg-forest-500 mt-8" />
+          <div className="w-16 h-px bg-royal-500 mt-8" />
         </div>
       </section>
 
@@ -109,26 +109,26 @@ export default function Services() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-6 mb-12">
             <div>
-              {/* <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-2">Category 01</p> */}
-              <h2 className="text-3xl md:text-4xl font-serif text-forest-950">Tax Services</h2>
+              {/* <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-2">Category 01</p> */}
+              <h2 className="text-3xl md:text-4xl font-serif text-royal-950">Tax Services</h2>
             </div>
-            <div className="flex-1 h-px bg-forest-100 hidden md:block" />
+            <div className="flex-1 h-px bg-royal-100 hidden md:block" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {taxServices.map((s, i) => <ServiceCard key={i} {...s} />)}
           </div>
 
           {/* Tax Organizer CTA */}
-          {/* <div className="mt-10 bg-forest-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* <div className="mt-10 bg-royal-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-serif mb-2">Tax Organizer</h3>
-              <p className="text-forest-200 text-sm">Download our tax organizer to gather and organize your documents before your appointment.</p>
+              <p className="text-royal-200 text-sm">Download our tax organizer to gather and organize your documents before your appointment.</p>
             </div>
             <a
               href="https://oriole-point-wx69.squarespace.com/s/MSACPAsTaxOrganizer.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="whitespace-nowrap bg-forest-500 hover:bg-forest-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
+              className="whitespace-nowrap bg-royal-500 hover:bg-royal-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
             >
               Download PDF
             </a>
@@ -141,8 +141,8 @@ export default function Services() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-6 mb-12">
             <div>
-              {/* <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-2">Category 02</p> */}
-              <h2 className="text-3xl md:text-4xl font-serif text-forest-950">Business Services</h2>
+              {/* <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-2">Category 02</p> */}
+              <h2 className="text-3xl md:text-4xl font-serif text-royal-950">Business Services</h2>
             </div>
             <div className="flex-1 h-px bg-gray-100 hidden md:block" />
           </div>
@@ -153,14 +153,14 @@ export default function Services() {
       </section>
 
       {/* QuickBooks Services */}
-      {/* <section className="bg-forest-50 py-20 px-6">
+      {/* <section className="bg-royal-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-6 mb-12">
             <div>
-              <p className="text-xs tracking-[0.3em] uppercase text-forest-600 mb-2">Category 03</p>
-              <h2 className="text-3xl md:text-4xl font-serif text-forest-950">QuickBooks Services</h2>
+              <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-2">Category 03</p>
+              <h2 className="text-3xl md:text-4xl font-serif text-royal-950">QuickBooks Services</h2>
             </div>
-            <div className="flex-1 h-px bg-forest-100 hidden md:block" />
+            <div className="flex-1 h-px bg-royal-100 hidden md:block" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {quickbooksServices.map((s, i) => <ServiceCard key={i} {...s} />)}
@@ -169,13 +169,13 @@ export default function Services() {
       </section> */}
 
       {/* Becoming a Client */}
-      <section className="bg-forest-950 text-white py-20 px-6">
+      <section className="bg-royal-950 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-serif mb-6">Becoming a Client</h2>
           <p className="text-gray-400 leading-relaxed mb-8 max-w-xl mx-auto">
             Getting started is easy. Reach out to schedule an initial consultation and we'll discuss your needs, walk you through our process, and determine the best path forward.
           </p>
-          <Link to="/contact" className="inline-block bg-forest-600 hover:bg-forest-500 text-white px-10 py-4 text-xs tracking-widest uppercase font-medium transition-colors">
+          <Link to="/contact" className="inline-block bg-royal-600 hover:bg-royal-500 text-white px-10 py-4 text-xs tracking-widest uppercase font-medium transition-colors">
             Contact Us
           </Link>
         </div>
