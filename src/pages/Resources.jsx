@@ -147,7 +147,7 @@ export default function Resources() {
       <section className="bg-royal-950 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">Helpful Information</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
+          <h1 className="text-navy-600 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             Resources
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
@@ -184,7 +184,7 @@ export default function Resources() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-3">IRS Resources</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-royal-950 mb-4">Tax Forms & Publications</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-navy-600 mb-4">Tax Forms & Publications</h2>
             <p className="text-gray-600 max-w-2xl">Easily access and print any IRS tax form or publication—no need for mail requests or post office visits. Click any publication below to open the PDF directly from the IRS website.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -235,7 +235,7 @@ export default function Resources() {
   <div className="max-w-6xl mx-auto">
     <div className="mb-10">
       <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-3">Worker Classification</p>
-      <h2 className="text-3xl md:text-4xl font-serif text-royal-950 mb-4">1099 vs W-2</h2>
+      <h2 className="text-3xl md:text-4xl font-serif text-navy-600 mb-4">1099 vs W-2</h2>
       <p className="text-gray-600 max-w-2xl">
         With more businesses turning to independent contractors to reduce costs and avoid employee benefits,
         it's critical to understand how 1099 contractors and W-2 employees differ—not just for IRS compliance,
@@ -358,7 +358,7 @@ export default function Resources() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-3">Tax Year 2026</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-royal-950 mb-4">Federal Income Tax Rates</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-navy-600 mb-4">Federal Income Tax Rates</h2>
             <p className="text-gray-600 max-w-2xl">Stay up to date with the latest federal income tax brackets for 2026. These rates apply to taxable income after deductions.</p>
           </div>
 
@@ -425,7 +425,7 @@ export default function Resources() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.3em] uppercase text-royal-400 mb-3">How Long to Keep Records</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-royal-100 mb-4">Record Retention Guide</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-navy-600 mb-4">Record Retention Guide</h2>
             <p className="text-royal-300 max-w-2xl">Use this guide to determine how long you need to keep your tax and other financial records. When in doubt, keep it longer—or consult with us.</p>
           </div>
 
@@ -462,7 +462,7 @@ export default function Resources() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
             <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-3">Common Questions</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-royal-950 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-navy-600 mb-4">Frequently Asked Questions</h2>
           </div>
 
           <div className="space-y-3">

@@ -94,7 +94,7 @@ export default function Services() {
       <section className="bg-royal-950 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">What We Offer</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
+          <h1 className="text-navy-600 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             Areas of Focus
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
@@ -110,7 +110,7 @@ export default function Services() {
           <div className="flex items-center gap-6 mb-12">
             <div>
               {/* <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-2">Category 01</p> */}
-              <h2 className="text-3xl md:text-4xl font-serif text-royal-950">Tax Services</h2>
+              <h2 className="text-3xl md:text-4xl font-serif text-navy-600">Tax Services</h2>
             </div>
             <div className="flex-1 h-px bg-royal-100 hidden md:block" />
           </div>
@@ -142,7 +142,7 @@ export default function Services() {
           <div className="flex items-center gap-6 mb-12">
             <div>
               {/* <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-2">Category 02</p> */}
-              <h2 className="text-3xl md:text-4xl font-serif text-royal-950">Business Services</h2>
+              <h2 className="text-3xl md:text-4xl font-serif text-navy-600">Business Services</h2>
             </div>
             <div className="flex-1 h-px bg-gray-100 hidden md:block" />
           </div>
@@ -171,7 +171,7 @@ export default function Services() {
       {/* Becoming a Client */}
       <section className="bg-royal-950 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-serif mb-6">Becoming a Client</h2>
+          <h2 className="text-navy-600 text-3xl font-serif mb-6">Becoming a Client</h2>
           <p className="text-gray-400 leading-relaxed mb-8 max-w-xl mx-auto">
             Getting started is easy. Reach out to schedule an initial consultation and we'll discuss your needs, walk you through our process, and determine the best path forward.
           </p>

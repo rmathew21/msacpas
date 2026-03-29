@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-royal-950 text-white min-h-screen flex items-center overflow-hidden">
+      <section className="relative bg-royal-600 text-white min-h-screen flex items-center overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -54,10 +54,10 @@ export default function Home() {
 
         <div className="relative max-w-6xl mx-auto px-6 py-32 md:py-40">
           <div className="max-w-3xl">
-            <p className="text-royal-400 text-xs tracking-[0.35em] uppercase mb-8 fade-up">
+            <p className="text-royal-300 text-xs tracking-[0.35em] uppercase mb-8 fade-up">
               Stafford, Texas · Since 2013
             </p>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight mb-8 fade-up delay-1">
+            <h1 className="text-navy-50 text-5xl md:text-7xl font-serif font-bold leading-tight mb-8 fade-up delay-1">
               Precision<br />
               Accounting<br />
               <span className="text-royal-400">for Peace</span><br />
@@ -85,7 +85,7 @@ export default function Home() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-royal-400">
-          <div className="w-px h-12 bg-royal-700 animate-pulse" />
+          <div className="w-px h-12 bg-royal-300 animate-pulse" />
         </div>
       </section>
 
@@ -119,7 +119,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">What We Do</p>
-            <h2 className="text-4xl md:text-5xl font-serif text-royal-950">Our Focus</h2>
+            <h2 className="text-4xl md:text-5xl font-serif text-navy-600">Our Focus</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
@@ -146,7 +146,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">About Samuel CPA</p>
-            <h2 className="text-4xl font-serif text-royal-950 mb-6 leading-tight">
+            <h2 className="text-4xl font-serif text-navy-600 mb-6 leading-tight">
               Trusted Advisors.<br />Real Results.
             </h2>
             <div className="w-12 h-px bg-royal-600 mb-6" />
@@ -200,7 +200,7 @@ export default function Home() {
       {/* CTA Banner */}
       <section className="bg-royal-700 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6">Get in Touch</h2>
+          <h2 className="text-navy-50 text-3xl md:text-4xl font-serif mb-6">Get in Touch</h2>
           <p className="text-royal-100 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
             Whether you need help with tax planning, business consulting, or financial reporting, our experienced team is ready to assist. Reach out today to schedule a consultation.
           </p>
