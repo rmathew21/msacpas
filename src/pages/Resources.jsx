@@ -414,7 +414,7 @@ export default function Resources() {
             ))}
           </div>
 
-          <p className="text-gray-400 text-xs mt-6">
+          <p className="text-slate-400 text-xs mt-6">
             * Rates reflect 2026 inflation-adjusted figures. Consult with a tax professional for your specific situation.
           </p>
         </div>

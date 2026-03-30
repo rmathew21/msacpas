@@ -79,7 +79,7 @@ const businessServices = [
 
 function ServiceCard({ title, desc }) {
   return (
-    <div className="bg-white border border-gray-100 p-6 hover:border-royal-200 hover:shadow-sm transition-all duration-200">
+    <div className="bg-royal-50 border border-royal-100 p-6 hover:border-royal-200 hover:shadow-sm transition-all duration-200">
       <div className="w-8 h-px bg-royal-500 mb-4" />
       <h3 className="text-lg font-serif text-royal-950 mb-3">{title}</h3>
       <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
@@ -144,7 +144,7 @@ export default function Services() {
               {/* <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-2">Category 02</p> */}
               <h2 className="text-3xl md:text-4xl font-serif text-navy-600">Business Services</h2>
             </div>
-            <div className="flex-1 h-px bg-gray-100 hidden md:block" />
+            <div className="flex-1 h-px bg-slate-100 hidden md:block" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {businessServices.map((s, i) => <ServiceCard key={i} {...s} />)}

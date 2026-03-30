@@ -124,7 +124,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {services.map((s, i) => (
-              <div key={i} className="border border-gray-100 p-8 hover:border-royal-200 hover:shadow-md transition-all duration-300 group">
+              <div key={i} className="bg-royal-50 border border-royal-100 p-8 hover:border-royal-200 hover:shadow-md transition-all duration-300 group">
                 <div className="text-royal-600 mb-6 group-hover:text-royal-700 transition-colors">{s.icon}</div>
                 <h3 className="text-xl font-serif text-royal-950 mb-4">{s.title}</h3>
                 <div className="w-8 h-px bg-royal-400 mb-4" />
