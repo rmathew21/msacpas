@@ -144,16 +144,16 @@ export default function Resources() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="bg-royal-950 text-white py-24 px-6">
+      <section className="bg-royal-600 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">Helpful Information</p>
-          <h1 className="text-navy-600 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
+          <p className="text-royal-300 text-xs tracking-[0.3em] uppercase mb-4">Helpful Information</p>
+          <h1 className="text-navy-50 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             Resources
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
             Access IRS publications, 2026 tax rates, and our record retention guide—everything you need to stay organized and informed.
           </p>
-          <div className="w-16 h-px bg-royal-500 mt-8" />
+          <div className="w-16 h-px bg-royal-300 mt-8" />
         </div>
       </section>
 
@@ -425,7 +425,7 @@ export default function Resources() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.3em] uppercase text-royal-400 mb-3">How Long to Keep Records</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-navy-600 mb-4">Record Retention Guide</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-navy-50 mb-4">Record Retention Guide</h2>
             <p className="text-royal-300 max-w-2xl">Use this guide to determine how long you need to keep your tax and other financial records. When in doubt, keep it longer—or consult with us.</p>
           </div>
 

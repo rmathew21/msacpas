@@ -91,16 +91,16 @@ export default function Services() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="bg-royal-950 text-white py-24 px-6">
+      <section className="bg-royal-600 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">What We Offer</p>
-          <h1 className="text-navy-600 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
+          <p className="text-royal-300 text-xs tracking-[0.3em] uppercase mb-4">What We Offer</p>
+          <h1 className="text-navy-50 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             Areas of Focus
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
             From individual tax returns to full-service business accounting, we offer a comprehensive suite of services designed to meet your needs at every stage.
           </p>
-          <div className="w-16 h-px bg-royal-500 mt-8" />
+          <div className="w-16 h-px bg-royal-300 mt-8" />
         </div>
       </section>
 
@@ -169,9 +169,9 @@ export default function Services() {
       </section> */}
 
       {/* Becoming a Client */}
-      <section className="bg-royal-950 text-white py-20 px-6">
+      <section className="bg-royal-800 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-navy-600 text-3xl font-serif mb-6">Becoming a Client</h2>
+          <h2 className="text-navy-300 text-3xl font-serif mb-6">Becoming a Client</h2>
           <p className="text-gray-400 leading-relaxed mb-8 max-w-xl mx-auto">
             Getting started is easy. Reach out to schedule an initial consultation and we'll discuss your needs, walk you through our process, and determine the best path forward.
           </p>
