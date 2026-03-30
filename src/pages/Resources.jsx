@@ -525,6 +525,35 @@ function ResourceSearch() {
 
 export default function Resources() {
   const [bracketView, setBracketView] = useState('single');
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const sectionIds = ['publications', 'taxOrganizer', '1099vsW2', 'tax-rates', 'retention', 'faqs'];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the topmost visible section
+        const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0,
+      }
+    );
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="pt-16 md:pt-20">
@@ -549,18 +578,23 @@ export default function Resources() {
       <section data-sticky-nav className="bg-royal-800 text-white py-5 px-6 sticky top-16 md:top-20 z-40">
         <div className="max-w-6xl mx-auto flex flex-wrap gap-6 justify-center md:justify-center">
           {[
-            { label: 'IRS Publications', href: '#publications' },
-            { label: 'Tax Organizer', href: '#taxOrganizer' },
-            { label: '1099 vs W-2', href: '#1099vsW2' },
-            { label: '2026 Tax Rates', href: '#tax-rates' },
-            { label: 'Record Retention', href: '#retention' },
-            { label: 'FAQs', href: '#faqs' },
+            { label: 'IRS Publications', href: '#publications', id: 'publications' },
+            { label: 'Tax Organizer', href: '#taxOrganizer', id: 'taxOrganizer' },
+            { label: '1099 vs W-2', href: '#1099vsW2', id: '1099vsW2' },
+            { label: '2026 Tax Rates', href: '#tax-rates', id: 'tax-rates' },
+            { label: 'Record Retention', href: '#retention', id: 'retention' },
+            { label: 'FAQs', href: '#faqs', id: 'faqs' },
           ].map(item => (
             <a 
               key={item.href} 
               href={item.href} 
               onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-              className="text-xs tracking-[0.15em] uppercase text-royal-200 hover:text-white transition-colors">
+              className={`text-xs tracking-[0.15em] uppercase transition-colors ${
+                activeSection === item.id
+                ? 'text-white border-b border-white pb-0.5'
+                : 'text-royal-200 hover:text-white'
+              }`}
+              >
               {item.label}
             </a>
           ))}
