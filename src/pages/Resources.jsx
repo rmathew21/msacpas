@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 function scrollToSection(id) {
@@ -138,6 +138,391 @@ const retentionGuide = [
   },
 ];
 
+const faqItems = [
+  {
+    title: 'When should I file my taxes?',
+    keywords: 'april deadline extension form 4868 october penalty interest',
+  },
+  {
+    title: 'What documents do I need to bring for tax preparation?',
+    keywords: 'w-2 1099 social security prior year receipts estimated payments bank organizer checklist',
+  },
+  {
+    title: 'What is the difference between a W-2 employee and a 1099 contractor?',
+    keywords: 'worker classification independent contractor self-employment fica payroll withholding quarterly',
+  },
+  {
+    title: 'How long do I need to keep my tax records?',
+    keywords: 'retention records 7 years audit statute of limitations fraud 25 percent',
+  },
+  {
+    title: 'What is an IRS audit and how does it work?',
+    keywords: 'audit review correspondence mail in-person representation samuel cpa',
+  },
+  {
+    title: 'Do you offer QuickBooks help?',
+    keywords: 'quickbooks setup training bookkeeping accounting software support',
+  },
+  {
+    title: 'Can you help if I have foreign income or assets abroad?',
+    keywords: 'fbar fincen 114 fatca foreign bank account expatriate expat abroad international',
+  },
+  {
+    title: 'How do I track my tax refund?',
+    keywords: 'refund status wheres my refund irs.gov 21 days direct deposit e-file',
+  },
+];
+
+// flat search index
+const searchIndex = [
+  ...irsPublications.map(p => ({
+    type: 'pub',
+    title: `${p.pub} - ${p.title}`,
+    sub: 'IRS Publications',
+    sectionId: 'publications',
+    url: p.url,
+    searchText: `${p.pub} ${p.title} irs publication tax`.toLowerCase(),
+  })),
+  ...retentionGuide.flatMap(g =>
+    g.items.map(item => ({
+      type: 'ret',
+      title: item.record,
+      sub: `${item.retention} · ${g.category}`,
+      sectionId: 'retention',
+      searchText: `${item.record} ${g.category} ${item.retention} record retention keep`.toLowerCase(),
+    }))
+  ),
+  ...faqItems.map(f => ({
+    type: 'faq',
+    title: f.title,
+    sub: 'Frequently Asked Questions',
+    sectionId: 'faqs',
+    searchText: `${f.title} ${f.keywords} faq question`.toLowerCase(),
+  })),
+
+  // static section search entries 
+  {
+    type: 'section',
+    title: '2026 Federal Income Tax Rates',
+    sub: 'Tax brackets for single filers and married filing jointly',
+    sectionId: 'tax-rates',
+    searchText: 'tax rates brackets 2026 federal income single married filing jointly standard deduction capital gains'.toLowerCase(),
+  },
+  {
+    type: 'section',
+    title: 'Tax Organizer',
+    sub: 'Download the PDF organizer for your appointment',
+    sectionId: 'taxOrganizer',
+    searchText: 'tax organizer download pdf appointment documents checklist'.toLowerCase(),
+  },
+  {
+    type: 'section',
+    title: '1099 vs W-2 Worker Classification',
+    sub: 'IRS 20-Factor Test, misclassification risks',
+    sectionId: '1099vsW2',
+    searchText: '1099 w2 w-2 worker classification contractor employee irs 20 factor test misclassification'.toLowerCase(),
+  },
+];
+
+const GROUP_META = {
+  pub:     { label: 'IRS Publications',           badgeBg: 'bg-blue-50',   badgeText: 'text-blue-800',   badge: 'PDF' },
+  faq:     { label: 'Frequently Asked Questions', badgeBg: 'bg-green-50',  badgeText: 'text-green-800',  badge: 'FAQ' },
+  ret:     { label: 'Record Retention Guide',     badgeBg: 'bg-amber-50',  badgeText: 'text-amber-800',  badge: 'RET' },
+  section: { label: 'Page Sections',              badgeBg: 'bg-royal-50',  badgeText: 'text-royal-700',  badge: 'GO'  },
+};
+
+const GROUP_ORDER = ['section', 'pub', 'faq', 'ret'];
+
+const SUGGESTION_CHIPS = ['1099', 'w-2', 'audit', 'QuickBooks', 'medical expenses', 'refund', 'depreciation', 'FBAR'];
+
+// highlight matching text 
+function Highlight({ text, query }) {
+  if (!query) return <>{text}</>;
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`(${escaped})`, 'gi');
+  const parts = text.split(re);
+  return (
+    <>
+      {parts.map((part, i) =>
+        re.test(part)
+          ? <mark key={i} className="bg-amber-100 text-amber-900 rounded-sm px-0.5 not-italic">{part}</mark>
+          : <span key={i}>{part}</span>
+      )}
+    </>
+  );
+}
+
+// resource Search
+function ResourceSearch() {
+  const [query, setQuery]           = useState('');
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const [open, setOpen]             = useState(false);
+
+  const inputRef    = useRef(null);
+  const dropdownRef = useRef(null);
+  const itemRefs    = useRef([]);
+
+  const trimmed = query.trim().toLowerCase();
+
+  const results = trimmed.length < 2
+    ? []
+    : searchIndex.filter(item => item.searchText.includes(trimmed));
+
+  const grouped = results.reduce((acc, item) => {
+    if (!acc[item.type]) acc[item.type] = [];
+    acc[item.type].push(item);
+    return acc;
+  }, {});
+
+  const flatResults = GROUP_ORDER.flatMap(k => grouped[k] ?? []);
+
+  const handleSelect = useCallback((item) => {
+    setQuery('');
+    setOpen(false);
+    setActiveIndex(-1);
+    if (item.url) {
+      window.open(item.url, '_blank', 'noopener,noreferrer');
+    } else {
+      scrollToSection('#' + item.sectionId);
+    }
+  }, []);
+
+  const handleKeyDown = (e) => {
+    if (!open || flatResults.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      const next = Math.min(activeIndex + 1, flatResults.length - 1);
+      setActiveIndex(next);
+      itemRefs.current[next]?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      const prev = Math.max(activeIndex - 1, 0);
+      setActiveIndex(prev);
+      itemRefs.current[prev]?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (activeIndex >= 0 && flatResults[activeIndex]) {
+        handleSelect(flatResults[activeIndex]);
+      }
+    } else if (e.key === 'Escape') {
+      setOpen(false);
+      setActiveIndex(-1);
+      inputRef.current?.blur();
+    }
+  };
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handler = (e) => {
+      if (
+        dropdownRef.current && !dropdownRef.current.contains(e.target) &&
+        inputRef.current && !inputRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+        setActiveIndex(-1);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  // Cmd/Ctrl+K focuses the search input from anywhere on the page
+  useEffect(() => {
+    const handler = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        inputRef.current?.focus();
+        inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, []);
+
+  // Reset keyboard index when results change
+  useEffect(() => {
+    setActiveIndex(-1);
+    itemRefs.current = [];
+  }, [trimmed]);
+
+  const showDropdown = open && trimmed.length >= 2;
+  const activeGroups = GROUP_ORDER.filter(k => grouped[k]);
+
+  // Running index across all groups for keyboard nav
+  let flatIdx = 0;
+
+  return (
+    <section className="bg-white border-b border-gray-100 py-10 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-xs tracking-[0.25em] uppercase text-royal-600 mb-3 text-center">
+            Search Resources
+          </p>
+
+          {/* Input row */}
+          <div className="relative">
+            <div
+              className={`flex items-center gap-3 border px-5 py-4 bg-white transition-all duration-150 ${
+                open ? 'border-royal-400 shadow-sm' : 'border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              {/* Search icon */}
+              <svg className="w-4 h-4 text-royal-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" strokeWidth={1.5} />
+                <path d="M21 21l-4.35-4.35" strokeWidth={1.5} strokeLinecap="round" />
+              </svg>
+
+              <input
+                ref={inputRef}
+                type="text"
+                value={query}
+                onChange={e => { setQuery(e.target.value); setOpen(true); }}
+                onFocus={() => setOpen(true)}
+                onKeyDown={handleKeyDown}
+                placeholder="Search publications, FAQs, record retention, tax rates…"
+                className="flex-1 bg-transparent outline-none text-sm text-gray-800 placeholder-gray-400"
+                aria-label="Search resources"
+                aria-expanded={showDropdown}
+                aria-autocomplete="list"
+                role="combobox"
+              />
+
+              {/* Clear button */}
+              {query && (
+                <button
+                  onClick={() => { setQuery(''); setOpen(false); inputRef.current?.focus(); }}
+                  className="text-gray-300 hover:text-gray-500 flex-shrink-0 transition-colors"
+                  aria-label="Clear search"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+
+              {/* Keyboard shortcut hint */}
+              {!query && (
+                <span className="hidden sm:flex items-center gap-1 flex-shrink-0">
+                  <kbd className="text-[10px] text-gray-300 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded font-sans">⌘</kbd>
+                  <kbd className="text-[10px] text-gray-300 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded font-sans">K</kbd>
+                </span>
+              )}
+            </div>
+
+            {/* ── Dropdown overlay ── */}
+            {showDropdown && (
+              <div
+                ref={dropdownRef}
+                role="listbox"
+                className="absolute left-0 right-0 top-full mt-1 bg-white border border-gray-200 shadow-lg z-50 max-h-[420px] overflow-y-auto"
+              >
+                {flatResults.length === 0 ? (
+                  <div className="px-6 py-8 text-center">
+                    <p className="text-gray-400 text-sm">
+                      No results for <span className="text-gray-600 font-medium">"{query}"</span>
+                    </p>
+                    <p className="text-gray-300 text-xs mt-1">Try a different keyword</p>
+                  </div>
+                ) : (
+                  <>
+                    {/* Result count + keyboard hint */}
+                    <div className="px-4 py-2 border-b border-gray-100 flex items-center justify-between">
+                      <span className="text-xs text-gray-400">
+                        {flatResults.length} result{flatResults.length !== 1 ? 's' : ''}
+                      </span>
+                      <span className="text-xs text-gray-300 hidden sm:block">
+                        ↑↓ to navigate · Enter to go · Esc to close
+                      </span>
+                    </div>
+
+                    {/* Grouped results */}
+                    {activeGroups.map(type => {
+                      const items = grouped[type];
+                      const meta  = GROUP_META[type];
+                      return (
+                        <div key={type}>
+                          <div className="px-4 pt-3 pb-1.5">
+                            <span className="text-[10px] tracking-[0.18em] uppercase text-gray-400 font-medium">
+                              {meta.label}
+                            </span>
+                          </div>
+
+                          {items.map(item => {
+                            const currentIdx = flatIdx++;
+                            const isActive   = currentIdx === activeIndex;
+                            return (
+                              <div
+                                key={`${type}-${item.title}`}
+                                ref={el => { itemRefs.current[currentIdx] = el; }}
+                                role="option"
+                                aria-selected={isActive}
+                                onMouseEnter={() => setActiveIndex(currentIdx)}
+                                onMouseDown={(e) => { e.preventDefault(); handleSelect(item); }}
+                                className={`flex items-start gap-3 px-4 py-3 cursor-pointer transition-colors ${
+                                  isActive ? 'bg-royal-50' : 'hover:bg-gray-50'
+                                }`}
+                              >
+                                {/* Type badge */}
+                                <span className={`text-[10px] font-semibold px-2 py-0.5 rounded flex-shrink-0 mt-0.5 tracking-wide uppercase ${meta.badgeBg} ${meta.badgeText}`}>
+                                  {meta.badge}
+                                </span>
+
+                                {/* Title + subtitle */}
+                                <div className="min-w-0 flex-1">
+                                  <p className="text-sm text-gray-800 leading-snug">
+                                    <Highlight text={item.title} query={trimmed} />
+                                  </p>
+                                  <p className="text-xs text-gray-400 mt-0.5 truncate">
+                                    <Highlight text={item.sub} query={trimmed} />
+                                  </p>
+                                </div>
+
+                                {/* Active chevron */}
+                                {isActive && (
+                                  <svg className="w-3.5 h-3.5 text-royal-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                  </svg>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      );
+                    })}
+
+                    {/* Footer note */}
+                    <div className="px-4 py-2.5 border-t border-gray-100 bg-gray-50">
+                      <p className="text-[10px] text-gray-400">
+                        IRS Publications open directly on IRS.gov · All other results scroll to the relevant section
+                      </p>
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Suggestion chips — shown when input is empty */}
+          {!query && (
+            <div className="flex flex-wrap gap-2 mt-4 justify-center">
+              {SUGGESTION_CHIPS.map(chip => (
+                <button
+                  key={chip}
+                  onClick={() => { setQuery(chip); setOpen(true); inputRef.current?.focus(); }}
+                  className="text-xs text-royal-600 bg-royal-50 hover:bg-royal-100 border border-royal-100 px-3 py-1 rounded-full transition-colors"
+                >
+                  {chip}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Resources() {
   const [bracketView, setBracketView] = useState('single');
 
@@ -156,6 +541,9 @@ export default function Resources() {
           <div className="w-16 h-px bg-royal-300 mt-8" />
         </div>
       </section>
+
+      {/* Search Bar */}
+      <ResourceSearch />
 
       {/* Quick Nav */}
       <section data-sticky-nav className="bg-royal-800 text-white py-5 px-6 sticky top-16 md:top-20 z-40">
@@ -213,6 +601,7 @@ export default function Resources() {
         </div>
       </section>
 
+        {/* Tax Organizer */}
       <section id="taxOrganizer" className='scroll-mt-32 mt-10'>
       <div className="mt-10 bg-royal-800 text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
