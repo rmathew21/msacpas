@@ -69,13 +69,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 fade-up delay-3">
               <Link
                 to="/contact"
-                className="inline-block bg-royal-600 hover:bg-royal-500 text-white px-8 py-4 text-sm tracking-widest uppercase font-medium transition-colors text-center"
+                className="inline-block bg-white text-navy-600 hover:bg-navy-700 hover:text-white  px-8 py-4 text-sm tracking-widest uppercase font-medium transition-colors text-center"
               >
                 Schedule a Consultation
               </Link>
               <Link
                 to="/services"
-                className="inline-block border border-white/30 hover:border-white text-white px-8 py-4 text-sm tracking-widest uppercase font-medium transition-colors text-center"
+                className="inline-block border border-white/50 hover:bg-white/10 hover:border-white text-white/80 hover:text-white px-8 py-4 text-sm tracking-widest uppercase font-medium transition-colors text-center"
               >
                 Our Services
               </Link>

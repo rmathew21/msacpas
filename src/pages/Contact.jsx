@@ -15,16 +15,16 @@ export default function Contact() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="bg-royal-950 text-white py-24 px-6">
+      <section className="bg-royal-600 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">Reach Out</p>
-          <h1 className="text-navy-600 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
+          <p className="text-royal-300 text-xs tracking-[0.3em] uppercase mb-4">Reach Out</p>
+          <h1 className="text-navy-50 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             Contact Us
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
             Whether you need help with tax planning, business consulting, or financial reporting, our experienced team is ready to assist. Reach out today.
           </p>
-          <div className="w-16 h-px bg-royal-500 mt-8" />
+          <div className="w-16 h-px bg-royal-300 mt-8" />
         </div>
       </section>
 
@@ -194,16 +194,16 @@ export default function Contact() {
       </section>
 
       {/* Map embed placeholder */}
-      <section className="bg-royal-900 py-16 px-6">
+      <section className="bg-royal-800 py-16 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">Find Us</p>
-          <h2 className="text-2xl font-serif text-navy-600 mb-2">11104 West Airport Blvd, Suite 114</h2>
+          <h2 className="text-2xl font-serif text-navy-300 mb-2">11104 West Airport Blvd, Suite 114</h2>
           <p className="text-royal-300 mb-8">Stafford, TX 77477</p>
           <a
             href="https://maps.google.com/?q=11104+West+Airport+Blvd+Suite+114+Stafford+TX+77477"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-royal-600 text-royal-300 hover:bg-royal-800 hover:text-white px-8 py-3 text-xs tracking-widest uppercase font-medium transition-all duration-200"
+            className="inline-block border border-royal-600 text-white hover:bg-royal-800 hover:text-white px-8 py-3 text-xs tracking-widest uppercase font-medium transition-all duration-200"
           >
             Open in Google Maps
           </a>
