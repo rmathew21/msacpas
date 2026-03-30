@@ -421,7 +421,7 @@ export default function Resources() {
       </section>
 
       {/* Record Retention Guide */}
-      <section id="retention" className="bg-royal-950 text-white py-20 px-6">
+      <section id="retention" className="bg-navy-900 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.3em] uppercase text-royal-400 mb-3">How Long to Keep Records</p>

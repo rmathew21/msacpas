@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-royal-950 text-white">
+    <footer className="bg-slate-900 text-white">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
@@ -14,7 +14,7 @@ export default function Footer() {
                 PLLC
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               Precision accounting for peace of mind. Advocating for small
               businesses and our clients since 2013.
             </p>
@@ -35,7 +35,7 @@ export default function Footer() {
                 <Link
                   key={l.to}
                   to={l.to}
-                  className="text-gray-400 text-sm hover:text-royal-300 transition-colors"
+                  className="text-slate-400 text-sm hover:text-royal-300 transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -48,7 +48,7 @@ export default function Footer() {
             <h4 className="text-xs tracking-[0.2em] uppercase text-royal-400 mb-5">
               Contact
             </h4>
-            <div className="flex flex-col gap-3 text-gray-400 text-sm">
+            <div className="flex flex-col gap-3 text-slate-400 text-sm">
               <div>
                 <p>11104 West Airport Blvd, Suite 114</p>
                 <p>Stafford, TX 77477</p>
@@ -58,14 +58,14 @@ export default function Footer() {
                   href="tel:2815649500"
                   className="hover:text-royal-300 transition-colors"
                 >
-                  <span className="text-gray-500 text-xs uppercase tracking-wider">
+                  <span className="text-slate-500 text-xs uppercase tracking-wider">
                     Office:{" "}
                   </span>
                   (281) 564-9500
                 </a>
               </div>
               <div>
-                <span className="text-gray-500 text-xs uppercase tracking-wider">
+                <span className="text-slate-500 text-xs uppercase tracking-wider">
                   Fax:{" "}
                 </span>
                 (1-866-621-1648)
@@ -80,7 +80,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-royal-900 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-xs">
+        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-xs">
           <p>© {year} Samuel CPA, PLLC. All rights reserved.</p>
           <p className="hover:text-royal-300 transition-colors">Powered by <a href="https://www.robowebsolutions.com/">Robo Web Solutions</a></p>
         </div>
