@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import aboutImg from '../assets/RajuSamuel.jpg';
 
 const services = [
   {
@@ -142,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* About Teaser */}
-      <section className="bg-royal-50 py-20 px-6">
+      {/* <section className="bg-royal-50 py-20 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">About Samuel CPA</p>
@@ -195,7 +196,44 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+<section className="bg-royal-50 py-20 px-6 md:px-20">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">About Samuel CPA</p>
+      <h2 className="text-4xl font-serif text-navy-600 mb-6 leading-tight">
+        Trusted Advisors.<br />Real Results.
+      </h2>
+      <div className="w-12 h-px bg-royal-600 mb-6" />
+      <p className="text-gray-700 leading-relaxed mb-6">
+        Based in Stafford, Texas, Samuel CPA PLLC has been serving individuals and small businesses since 2013. We specialize in tax preparation, accounting, and financial consulting—helping our clients navigate complex financial decisions with confidence.
+      </p>
+      <p className="text-gray-700 leading-relaxed mb-8">
+        Whether you're a small business owner, entrepreneur, or individual taxpayer, Raju brings deep expertise, attention to detail, and a commitment to professionalism tailored to your unique financial goals. As a proud member of both the TSCPA and AICPA, he holds himself to the highest standards of ethics and continuing education in the profession.
+      </p>
+      <Link to="/about" className="inline-block bg-royal-700 text-white px-8 py-3 text-xs tracking-widest uppercase font-medium hover:bg-royal-800 transition-colors">
+        Learn More
+      </Link>
+    </div>
+
+    <div className="flex flex-col items-start gap-4">
+      <div className="shrink-0 w-60 shadow-md border-t-2 border-royal-600 overflow-hidden">
+        <img
+          src={aboutImg}
+          alt="Raju Samuel, CPA, CMA"
+          className="w-full h-72 object-cover object-top"
+        />
+      </div>
+      <div>
+        <p className="text-navy-600 font-serif text-2xl mb-1">Raju Samuel</p>
+        <p className="text-royal-600 text-xs tracking-widest uppercase font-medium mb-3">CPA, CMA</p>
+        <div className="w-8 h-px bg-royal-300 mb-3" />
+        <p className="text-gray-400 text-xs tracking-wide">Texas License # XXXXXXX</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* CTA Banner */}
       <section className="bg-royal-700 text-white py-20 px-6">
