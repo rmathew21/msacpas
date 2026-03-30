@@ -171,7 +171,7 @@ export default function Services() {
       {/* Becoming a Client */}
       <section className="bg-royal-800 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-navy-300 text-3xl font-serif mb-6">Becoming a Client</h2>
+          <h2 className="text-royal-100 text-3xl font-serif mb-6">Becoming a Client</h2>
           <p className="text-gray-400 leading-relaxed mb-8 max-w-xl mx-auto">
             Getting started is easy. Reach out to schedule an initial consultation and we'll discuss your needs, walk you through our process, and determine the best path forward.
           </p>

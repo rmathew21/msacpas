@@ -197,7 +197,7 @@ export default function Contact() {
       <section className="bg-royal-800 py-16 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-royal-400 text-xs tracking-[0.3em] uppercase mb-4">Find Us</p>
-          <h2 className="text-2xl font-serif text-navy-300 mb-2">11104 West Airport Blvd, Suite 114</h2>
+          <h2 className="text-2xl font-serif text-royal-100 mb-2">11104 West Airport Blvd, Suite 114</h2>
           <p className="text-royal-300 mb-8">Stafford, TX 77477</p>
           <a
             href="https://maps.google.com/?q=11104+West+Airport+Blvd+Suite+114+Stafford+TX+77477"

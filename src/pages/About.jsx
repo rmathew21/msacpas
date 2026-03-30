@@ -153,7 +153,7 @@ export default function About() {
       {/* CTA */}
       <section className="bg-royal-800 text-white py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-navy-300 text-3xl font-serif mb-6">Ready to Work Together?</h2>
+          <h2 className="text-royal-100 text-3xl font-serif mb-6">Ready to Work Together?</h2>
           <p className="text-gray-400 mb-8">Schedule a consultation and discover how Samuel CPA PLLC can serve your financial needs.</p>
           <Link to="/contact" className="inline-block bg-royal-600 hover:bg-royal-500 text-white px-10 py-4 text-xs tracking-widest uppercase font-medium transition-colors">
             Get in Touch
