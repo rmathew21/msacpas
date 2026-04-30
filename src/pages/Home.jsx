@@ -228,7 +228,7 @@ export default function Home() {
         <p className="text-navy-600 font-serif text-2xl mb-1">Raju Samuel</p>
         <p className="text-royal-600 text-xs tracking-widest uppercase font-medium mb-3">CPA, CMA</p>
         <div className="w-8 h-px bg-royal-300 mb-3" />
-        <p className="text-gray-400 text-xs tracking-wide">Texas License # XXXXXXX</p>
+        {/* <p className="text-gray-400 text-xs tracking-wide">Texas License # XXXXXXX</p> */}
       </div>
     </div>
   </div>
@@ -239,7 +239,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-navy-50 text-3xl md:text-4xl font-serif mb-6">Get in Touch</h2>
           <p className="text-royal-100 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Whether you need help with tax planning, business consulting, or financial reporting, our experienced team is ready to assist. Reach out today to schedule a consultation.
+            Whether you need help with tax planning, business consulting, or financial reporting, our experienced team is ready to assist. Reach out today to schedule a free consultation.
           </p>
           <Link
             to="/contact"
