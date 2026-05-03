@@ -59,9 +59,9 @@ export default function Home() {
               Stafford, Texas · Since 2013
             </p>
             <h1 className="text-navy-50 text-5xl md:text-7xl font-serif font-bold leading-tight mb-8 fade-up delay-1">
-              Accounting<br />
-              You Can<br />
-              <span className="text-royal-400">Count On.</span>
+              Proactive Accounting<br />
+              for YOUR<br />
+              <span className="text-royal-400">Growing Business.</span>
             </h1>
             <p className="text-royal-200 text-lg leading-relaxed max-w-xl mb-12 fade-up delay-2">
               Samuel CPA PLLC provides reliable and personalized CPA services to individuals and small businesses across the Houston region. We go beyond the numbers to support your long-term success.
