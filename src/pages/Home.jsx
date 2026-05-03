@@ -60,7 +60,7 @@ export default function Home() {
             </p>
             <h1 className="text-navy-50 text-5xl md:text-7xl font-serif font-bold leading-tight mb-8 fade-up delay-1">
               Proactive Accounting<br />
-              for YOUR<br />
+              For Your<br />
               <span className="text-royal-400">Growing Business.</span>
             </h1>
             <p className="text-royal-200 text-lg leading-relaxed max-w-xl mb-12 fade-up delay-2">
