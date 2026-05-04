@@ -54,19 +54,19 @@ export default function Home() {
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-royal-500" />
 
         <div className="relative max-w-6xl mx-auto px-6 py-32 md:py-40">
-          <div className="max-w-3xl">
-            <p className="text-royal-300 text-xs tracking-[0.35em] uppercase mb-8 fade-up">
+          <div className="max-w-3xl mx-auto md:mx-0">
+            <p className="text-royal-300 text-xs tracking-[0.35em] uppercase mb-8 fade-up text-center md:text-left">
               Stafford, Texas · Since 2013
             </p>
-            <h1 className="text-navy-50 text-5xl md:text-7xl font-serif font-bold leading-tight mb-8 fade-up delay-1">
+            <h1 className="text-navy-50 text-5xl md:text-7xl font-serif font-bold leading-tight mb-8 fade-up delay-1 text-center md:text-left">
               Proactive Accounting<br />
               For Your<br />
               <span className="text-royal-400">Growing Business.</span>
             </h1>
-            <p className="text-royal-200 text-lg leading-relaxed max-w-xl mb-12 fade-up delay-2">
+            <p className="text-royal-200 text-lg leading-relaxed max-w-xl mb-12 fade-up delay-2 text-center md:text-left">
               Samuel CPA PLLC provides reliable and personalized CPA services to individuals and small businesses across the Houston region. We go beyond the numbers to support your long-term success.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 fade-up delay-3">
+            <div className="flex flex-col sm:flex-row gap-4 fade-up delay-3 items-center md:items-start">
               <Link
                 to="/contact"
                 className="inline-block bg-white text-navy-600 hover:bg-navy-700 hover:text-white  px-8 py-4 text-sm tracking-widest uppercase font-medium transition-colors text-center"
