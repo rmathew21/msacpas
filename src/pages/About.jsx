@@ -26,11 +26,11 @@ export default function About() {
       {/* Hero */}
       <section className="bg-royal-600 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-royal-300 text-xs tracking-[0.3em] uppercase mb-4">Our Story</p>
+          <p className="text-royal-300 text-xs tracking-[0.3em] uppercase mb-4 ">Our Story</p>
           <h1 className="text-navy-50 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
             About Samuel CPA, PLLC
           </h1>
-          <div className="w-16 h-px bg-royal-300 mt-8" />
+          <div className="w-16 h-px bg-royal-300 mt-8 " />
         </div>
       </section>
 

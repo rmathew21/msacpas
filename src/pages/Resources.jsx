@@ -643,9 +643,8 @@ export default function Resources() {
               <p className="text-royal-200 text-sm">Download our tax organizer to gather and organize your documents before your appointment.</p>
             </div>
             <a
-              href="https://oriole-point-wx69.squarespace.com/s/MSACPAsTaxOrganizer.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/MSACPAsTaxOrganizer.pdf"
+              download="MSACPAsTaxOrganizer.pdf"
               className="whitespace-nowrap bg-royal-500 hover:bg-royal-400 text-white px-6 py-3 text-xs tracking-widest uppercase font-medium transition-colors"
             >
               Download PDF
