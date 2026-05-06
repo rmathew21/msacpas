@@ -1,24 +1,45 @@
-import { Link } from 'react-router-dom';
-import aboutImg from '../assets/RajuSamuel.jpg';
+import { Link } from "react-router-dom";
+import aboutImg from "../assets/RajuSamuel.jpg";
+import { ReviewSection } from "../components/ReviewsSection";
 
 const services = [
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
+      <svg
+        className="w-7 h-7"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"
+        />
       </svg>
     ),
-    title: 'Tax Preparation Services',
-    desc: 'We handle your tax preparation and filing with a strategic eye—minimizing your tax burden while supporting your business growth.',
+    title: "Tax Preparation Services",
+    desc: "We handle your tax preparation and filing with a strategic eye—minimizing your tax burden while supporting your business growth.",
   },
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+      <svg
+        className="w-7 h-7"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+        />
       </svg>
     ),
-    title: 'Certified Public Accountant',
-    desc: 'We offer comprehensive CPA, tax, and accounting services tailored for small businesses and individuals across the Houston region.',
+    title: "Certified Public Accountant",
+    desc: "We offer comprehensive CPA, tax, and accounting services tailored for small businesses and individuals across the Houston region.",
   },
   // {
   //   icon: (
@@ -32,10 +53,10 @@ const services = [
 ];
 
 const stats = [
-  { value: '10+', label: 'Years in Business' },
-  { value: '500+', label: 'Clients Served' },
-  { value: '2013', label: 'Established' },
-  { value: 'TX', label: 'Stafford, Texas' },
+  { value: "10+", label: "Years in Business" },
+  { value: "500+", label: "Clients Served" },
+  { value: "2013", label: "Established" },
+  { value: "TX", label: "Stafford, Texas" },
 ];
 
 export default function Home() {
@@ -45,10 +66,14 @@ export default function Home() {
       <section className="relative bg-royal-600 text-white min-h-screen flex items-center overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)',
-            backgroundSize: '24px 24px'
-          }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
+              backgroundSize: "24px 24px",
+            }}
+          />
         </div>
         {/* Green accent bar */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-royal-500" />
@@ -59,12 +84,16 @@ export default function Home() {
               Stafford, Texas · Since 2013
             </p>
             <h1 className="text-navy-50 text-5xl md:text-7xl font-serif font-bold leading-tight mb-8 fade-up delay-1 text-center md:text-left">
-              Proactive Accounting<br />
-              For Your<br />
+              Proactive Accounting
+              <br />
+              For Your
+              <br />
               <span className="text-royal-400">Growing Business.</span>
             </h1>
             <p className="text-royal-200 text-lg leading-relaxed max-w-xl mb-12 fade-up delay-2 text-center md:text-left">
-              Samuel CPA PLLC provides reliable and personalized CPA services to individuals and small businesses across the Houston region. We go beyond the numbers to support your long-term success.
+              Samuel CPA PLLC provides reliable and personalized CPA services to
+              individuals and small businesses across the Houston region. We go
+              beyond the numbers to support your long-term success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 fade-up delay-3 items-center md:items-start">
               <Link
@@ -93,10 +122,14 @@ export default function Home() {
       <section className="bg-royal-800 text-white">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map(s => (
+            {stats.map((s) => (
               <div key={s.label}>
-                <div className="text-3xl font-serif font-bold text-royal-300">{s.value}</div>
-                <div className="text-xs tracking-widest uppercase text-royal-200 mt-1">{s.label}</div>
+                <div className="text-3xl font-serif font-bold text-royal-300">
+                  {s.value}
+                </div>
+                <div className="text-xs tracking-widest uppercase text-royal-200 mt-1">
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>
@@ -118,23 +151,39 @@ export default function Home() {
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">What We Do</p>
-            <h2 className="text-4xl md:text-5xl font-serif text-navy-600">Our Focus</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">
+              What We Do
+            </p>
+            <h2 className="text-4xl md:text-5xl font-serif text-navy-600">
+              Our Focus
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {services.map((s, i) => (
-              <div key={i} className="bg-royal-50 border border-royal-100 p-8 hover:border-royal-200 hover:shadow-md transition-all duration-300 group">
-                <div className="text-royal-600 mb-6 group-hover:text-royal-700 transition-colors">{s.icon}</div>
-                <h3 className="text-xl font-serif text-royal-950 mb-4">{s.title}</h3>
+              <div
+                key={i}
+                className="bg-royal-50 border border-royal-100 p-8 hover:border-royal-200 hover:shadow-md transition-all duration-300 group"
+              >
+                <div className="text-royal-600 mb-6 group-hover:text-royal-700 transition-colors">
+                  {s.icon}
+                </div>
+                <h3 className="text-xl font-serif text-royal-950 mb-4">
+                  {s.title}
+                </h3>
                 <div className="w-8 h-px bg-royal-400 mb-4" />
-                <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/services" className="inline-block border border-royal-700 text-royal-700 px-8 py-3 text-xs tracking-widest uppercase font-medium hover:bg-royal-700 hover:text-white transition-all duration-200">
+            <Link
+              to="/services"
+              className="inline-block border border-royal-700 text-royal-700 px-8 py-3 text-xs tracking-widest uppercase font-medium hover:bg-royal-700 hover:text-white transition-all duration-200"
+            >
               View All Services
             </Link>
           </div>
@@ -197,52 +246,76 @@ export default function Home() {
         </div>
       </section> */}
 
-<section className="bg-royal-50 py-20 px-6 md:px-20">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <div>
-      <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4 text-center md:text-left">About Samuel CPA</p>
-      <h2 className="text-4xl font-serif text-navy-600 mb-6 leading-tight text-center md:text-left">
-        Trusted Advisors.<br />Real Results.
-      </h2>
-      <div className="w-12 h-px bg-royal-600 mb-6 mx-auto md:mx-0" />
-      <p className="text-gray-700 leading-relaxed mb-6 text-center md:text-left">
-        Based in Stafford, Texas, Samuel CPA PLLC has been serving individuals and small businesses since 2013. We specialize in tax preparation, accounting, and financial consulting—helping our clients navigate complex financial decisions with confidence.
-      </p>
-      <p className="text-gray-700 leading-relaxed mb-8 text-center md:text-left">
-        Whether you're a small business owner, entrepreneur, or individual taxpayer, Raju brings deep expertise, attention to detail, and a commitment to professionalism tailored to your unique financial goals. As a proud member of both the TSCPA and AICPA, he holds himself to the highest standards of ethics and continuing education in the profession.
-      </p>
-      <div className='text-center md:text-left'>
-      <Link to="/about" className="inline-block bg-royal-700 text-white px-8 py-3 text-xs tracking-widest uppercase font-medium hover:bg-royal-800 transition-colors">
-        Learn More
-      </Link>
-      </div>
-      
-    </div>
+      <section className="bg-royal-50 py-20 px-6 md:px-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4 text-center md:text-left">
+              About Samuel CPA
+            </p>
+            <h2 className="text-4xl font-serif text-navy-600 mb-6 leading-tight text-center md:text-left">
+              Trusted Advisors.
+              <br />
+              Real Results.
+            </h2>
+            <div className="w-12 h-px bg-royal-600 mb-6 mx-auto md:mx-0" />
+            <p className="text-gray-700 leading-relaxed mb-6 text-center md:text-left">
+              Based in Stafford, Texas, Samuel CPA PLLC has been serving
+              individuals and small businesses since 2013. We specialize in tax
+              preparation, accounting, and financial consulting—helping our
+              clients navigate complex financial decisions with confidence.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-8 text-center md:text-left">
+              Whether you're a small business owner, entrepreneur, or individual
+              taxpayer, Raju brings deep expertise, attention to detail, and a
+              commitment to professionalism tailored to your unique financial
+              goals. As a proud member of both the TSCPA and AICPA, he holds
+              himself to the highest standards of ethics and continuing
+              education in the profession.
+            </p>
+            <div className="text-center md:text-left">
+              <Link
+                to="/about"
+                className="inline-block bg-royal-700 text-white px-8 py-3 text-xs tracking-widest uppercase font-medium hover:bg-royal-800 transition-colors"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
 
-    <div className="flex flex-col items-center md:items-start gap-4">
-      <div className="shrink-0 w-60 shadow-md border-t-2 border-royal-600 overflow-hidden">
-        <img
-          src={aboutImg}
-          alt="Raju Samuel, CPA, CMA"
-          className="w-full h-72 object-cover object-top"
-        />
-      </div>
-      <div className='text-center md:text-left'>
-        <p className="text-navy-600 font-serif text-2xl mb-1">Raju Samuel</p>
-        <p className="text-royal-600 text-xs tracking-widest uppercase font-medium mb-3">CPA, CMA</p>
-        <div className="w-8 h-px bg-royal-300 mb-3 mx-auto md:mx-0" />
-        {/* <p className="text-gray-400 text-xs tracking-wide">Texas License # XXXXXXX</p> */}
-      </div>
-    </div>
-  </div>
-</section>
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <div className="shrink-0 w-60 shadow-md border-t-2 border-royal-600 overflow-hidden">
+              <img
+                src={aboutImg}
+                alt="Raju Samuel, CPA, CMA"
+                className="w-full h-72 object-cover object-top"
+              />
+            </div>
+            <div className="text-center md:text-left">
+              <p className="text-navy-600 font-serif text-2xl mb-1">
+                Raju Samuel
+              </p>
+              <p className="text-royal-600 text-xs tracking-widest uppercase font-medium mb-3">
+                CPA, CMA
+              </p>
+              <div className="w-8 h-px bg-royal-300 mb-3 mx-auto md:mx-0" />
+              {/* <p className="text-gray-400 text-xs tracking-wide">Texas License # XXXXXXX</p> */}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ReviewSection />
 
       {/* CTA Banner */}
       <section className="bg-royal-700 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-navy-50 text-3xl md:text-4xl font-serif mb-6">Get in Touch</h2>
+          <h2 className="text-navy-50 text-3xl md:text-4xl font-serif mb-6">
+            Get in Touch
+          </h2>
           <p className="text-royal-100 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Whether you need help with tax planning, business consulting, or financial reporting, our experienced team is ready to assist. Reach out today to schedule a free consultation.
+            Whether you need help with tax planning, business consulting, or
+            financial reporting, our experienced team is ready to assist. Reach
+            out today to schedule a free consultation.
           </p>
           <Link
             to="/contact"
