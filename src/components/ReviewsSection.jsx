@@ -55,31 +55,31 @@ function StarRating({ count = 5 }) {
 }
 
 function ReviewCard({ review, index }) {
-    const cardRef = useRef(null);
+  const cardRef = useRef(null);
 
-    useEffect(() => {
-        const el = cardRef.current;
-        if (!el) return;
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    el.style.transitionDelay = `${index * 120}ms`;
-                    el.classList.add('fade-up');
-                    observer.unobserve(el);
-                }
-            },
-            { threshold: 0.15 }
-        );
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.transitionDelay = `${index * 120}ms`;
+          el.classList.add("fade-up");
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15 }
+    );
 
-        obserber.observe(el);
-        return () => observer.disconnect();
-    }, [index]);
+    obserber.observe(el);
+    return () => observer.disconnect();
+  }, [index]);
 
-    return (
-        <article
-        ref={cardRef}
-        className="
+  return (
+    <article
+      ref={cardRef}
+      className="
         relative flex flex-col bg-white border border-navy-100
         rounded-sm p-7 sm:p-8
         shadow-[0_2px_12px_rgba(10,25,60,0.06)]
@@ -88,44 +88,51 @@ function ReviewCard({ review, index }) {
         transition-all duration-300 ease-out
         opacity-0
         "
-        style={{ willChange: 'transform, opacity' }}
+      style={{ willChange: "transform, opacity" }}
+    >
+      <span
+        className="absolute top-0 left-8 right-8 h-px bg-royal-300 opacity-60"
+        aria-hidden="true"
+      />
+
+      <span
+        className="block font-serif text-[4.5rem] leading-none text-royal-200 select-none mb-1 -mt-2"
+        aria-hidden="true"
+      >
+        &ldquo;
+      </span>
+
+      <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] flex-1">
+        {review.text}
+      </p>
+
+      <div className="mt-6 pt-5 border-t border-navy-100 flex items-center gap-3">
+        <div
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-royal-700 text-white text-xs font-semibold tracking-wider uppercase"
+          aria-hidden="true"
         >
-         <span className="absolute top-0 left-8 right-8 h-px bg-royal-300 opacity-60"  aria-hidden='true' />   
-
-         <span className="block font-serif text-[4.5rem] leading-none text-royal-200 select-none mb-1 -mt-2"
-         aria-hidden='true'
-         >
-            &ldquo;
-         </span>
-
-         <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] flex-1">
-            {review.text}
-         </p>
-
-         <div className="mt-6 pt-5 border-t border-navy-100 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-royal-700 text-white text-xs font-semibold tracking-wider uppercase"
-            aria-hidden='true'
-            >
-                {review.initials}
-            </div>
-            {/* name */}
-            <div className="flex-1 min-w-0">
-                <p className="text-navy-900 font-semibold text-sm tracking-tight leading-snug truncate">
-                    {review.name}
-                </p>
-                <p className="text-navy-400 text-xs tracking-widest uppercase mt-0.5 font-medium">
-                    {review.date}
-                </p>
-            </div>
-            {/* Stars - right-aligned on desktop */}
-            <div className="hidden sm:flex ml-auto">
-                <StarRating count={review.rating} />
-            </div>
-         </div>
-        {/* Stars - below name on small screens */}
-         <div className="sm:hidden mt-3">
-         <StarRating count={review.rating} />
-         </div>
-        </article>
-    );
+          {review.initials}
+        </div>
+        {/* name */}
+        <div className="flex-1 min-w-0">
+          <p className="text-navy-900 font-semibold text-sm tracking-tight leading-snug truncate">
+            {review.name}
+          </p>
+          <p className="text-navy-400 text-xs tracking-widest uppercase mt-0.5 font-medium">
+            {review.date}
+          </p>
+        </div>
+        {/* Stars - right-aligned on desktop */}
+        <div className="hidden sm:flex ml-auto">
+          <StarRating count={review.rating} />
+        </div>
+      </div>
+      {/* Stars - below name on small screens */}
+      <div className="sm:hidden mt-3">
+        <StarRating count={review.rating} />
+      </div>
+    </article>
+  );
 }
+
+
