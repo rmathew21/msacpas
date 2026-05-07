@@ -282,7 +282,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center md:items-start gap-4">
+          <div className="flex flex-col items-center  gap-4">
             <div className="shrink-0 w-60 shadow-md border-t-2 border-royal-600 overflow-hidden">
               <img
                 src={aboutImg}
