@@ -28,24 +28,41 @@ const REVIEWS = [
   },
   {
     id: 4,
-    name: "Asim Abbasi",
+    name: "Ash Rashid",
     rating: 5,
     date: "Verified Google Review",
-    initials: "AA",
-    text: "Mathews & Samuel have been doing my personal taxes for 8 years. I found them very knowledgeable and helpful — they know the ins and outs of the tax code and provide great support. Not only do they provide tax services, they also give pointers on how to save money.",
+    initials: "AR",
+    text: "THis firm is the most professional and both Alex and Raju are extremely knowledgable. Their turn around is very fast and the e filing process was very easy. I got my returns in less than 2 weeks. I would highly recommend them for all your tax filing. 5 stars!",
   },
   {
     id: 5,
-    name: "Asim Abbasi",
+    name: "Pramod Kumar",
     rating: 5,
     date: "Verified Google Review",
-    initials: "AA",
-    text: "Mathews & Samuel have been doing my personal taxes for 8 years. I found them very knowledgeable and helpful — they know the ins and outs of the tax code and provide great support. Not only do they provide tax services, they also give pointers on how to save money.",
+    initials: "PK",
+    text: "I am using their services (for my tax return) since 2012. Excellent service. I recommended them to many of my friends and I got very positive feedback from my friends about their services. I strongly recommend them for any accounting services.",
+  },
+  {
+    id: 6,
+    name: "Navid Zanjani",
+    rating: 5,
+    date: "Verified Google Review",
+    initials: "NZ",
+    text: "I highly recommend their accounting services. They are thorough and have a great understanding of business and personal accounting. They have a very high level of experience and will professionally take care of all your needs. They will step by step explain anything you have questions about and will make sure you are satisfied with the results.",
+  },
+  {
+    id: 7,
+    name: "Monica Hita",
+    rating: 5,
+    date: "Verified Google Review",
+    initials: "MH",
+    text: "Really happy with the service received, fast and professional.",
   },
 ];
 
 const GOOGLE_REVIEW_URL =
-  "https://www.google.com/search?client=safari&hs=h6wU&sca_esv=2eb1beb0bd5e5e34&rls=en&biw=1480&bih=883&sxsrf=ANbL-n5A59PTYO3Ij15X_jN1eAxjR20SkA:1774914887765&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOU0_sxvIHugKZ0Jp7-iMNdpAsYvBy-jNmauqSnReKvWPq98jw5nsLbrWf2nObTvFk3mhmFpvDKnuVLn3EQ358fvEYzIn&q=Samuel+CPA+PLLC+Reviews&sa=X&ved=2ahUKEwjQ5pCb6ciTAxXPmmoFHaJxLc4Q0bkNegQIHhAH#";
+  // "https://www.google.com/search?client=safari&hs=h6wU&sca_esv=2eb1beb0bd5e5e34&rls=en&biw=1480&bih=883&sxsrf=ANbL-n5A59PTYO3Ij15X_jN1eAxjR20SkA:1774914887765&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOU0_sxvIHugKZ0Jp7-iMNdpAsYvBy-jNmauqSnReKvWPq98jw5nsLbrWf2nObTvFk3mhmFpvDKnuVLn3EQ358fvEYzIn&q=Samuel+CPA+PLLC+Reviews&sa=X&ved=2ahUKEwjQ5pCb6ciTAxXPmmoFHaJxLc4Q0bkNegQIHhAH#";
+  "https://www.google.com/search?client=safari&hs=h6wU&sca_esv=2eb1beb0bd5e5e34&rls=en&biw=1480&bih=883&sxsrf=ANbL-n5A59PTYO3Ij15X_jN1eAxjR20SkA:1774914887765&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOU0_sxvIHugKZ0Jp7-iMNdpAsYvBy-jNmauqSnReKvWPq98jw5nsLbrWf2nObTvFk3mhmFpvDKnuVLn3EQ358fvEYzIn&q=Samuel+CPA+PLLC+Reviews&sa=X&ved=2ahUKEwjQ5pCb6ciTAxXPmmoFHaJxLc4Q0bkNegQIHhAH#lrd=0x8640e7dbbd6a1c17:0xd3e4189568477d7b,3,,,,";
 
 // how many cards visible at one time - desktop
 const CARDS_PER_PAGE = 3;
