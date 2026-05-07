@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const REVIEWS = [
@@ -26,11 +26,31 @@ const REVIEWS = [
     initials: "AA",
     text: "Mathews & Samuel have been doing my personal taxes for 8 years. I found them very knowledgeable and helpful — they know the ins and outs of the tax code and provide great support. Not only do they provide tax services, they also give pointers on how to save money.",
   },
+  {
+    id: 4,
+    name: "Asim Abbasi",
+    rating: 5,
+    date: "Verified Google Review",
+    initials: "AA",
+    text: "Mathews & Samuel have been doing my personal taxes for 8 years. I found them very knowledgeable and helpful — they know the ins and outs of the tax code and provide great support. Not only do they provide tax services, they also give pointers on how to save money.",
+  },
+  {
+    id: 5,
+    name: "Asim Abbasi",
+    rating: 5,
+    date: "Verified Google Review",
+    initials: "AA",
+    text: "Mathews & Samuel have been doing my personal taxes for 8 years. I found them very knowledgeable and helpful — they know the ins and outs of the tax code and provide great support. Not only do they provide tax services, they also give pointers on how to save money.",
+  },
 ];
 
 const GOOGLE_REVIEW_URL =
   "https://www.google.com/search?client=safari&hs=h6wU&sca_esv=2eb1beb0bd5e5e34&rls=en&biw=1480&bih=883&sxsrf=ANbL-n5A59PTYO3Ij15X_jN1eAxjR20SkA:1774914887765&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOU0_sxvIHugKZ0Jp7-iMNdpAsYvBy-jNmauqSnReKvWPq98jw5nsLbrWf2nObTvFk3mhmFpvDKnuVLn3EQ358fvEYzIn&q=Samuel+CPA+PLLC+Reviews&sa=X&ved=2ahUKEwjQ5pCb6ciTAxXPmmoFHaJxLc4Q0bkNegQIHhAH#";
 
+// how many cards visible at one time - desktop
+const CARDS_PER_PAGE = 3;
+
+// star rating
 function StarRating({ count = 5 }) {
   return (
     <div
@@ -54,58 +74,59 @@ function StarRating({ count = 5 }) {
   );
 }
 
-function ReviewCard({ review, index }) {
-  const cardRef = useRef(null);
+// review card
+function ReviewCard({ review }) {
+  // const cardRef = useRef(null);
 
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
+  // useEffect(() => {
+  //   const el = cardRef.current;
+  //   if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.transitionDelay = `${index * 120}ms`;
-          el.classList.add("fade-up");
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.15 }
-    );
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+  //         el.style.transitionDelay = `${index * 120}ms`;
+  //         el.classList.add("fade-up");
+  //         observer.unobserve(el);
+  //       }
+  //     },
+  //     { threshold: 0.15 }
+  //   );
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [index]);
+  //   observer.observe(el);
+  //   return () => observer.disconnect();
+  // }, [index]);
 
   return (
     <article
-      ref={cardRef}
+      // ref={cardRef}
       className="
         relative flex flex-col bg-white border border-navy-100
-        rounded-sm p-7 sm:p-8
+        rounded-sm p-7 sm:p-8 h-full
         shadow-[0_2px_12px_rgba(10,25,60,0.06)]
         hover:shadow-[0_6px_24px_rgba(10,25,60,0.11)]
         hover:-translate-y-0.5
         transition-all duration-300 ease-out
-        opacity-0
         "
-      style={{ willChange: "transform, opacity" }}
+      // style={{ willChange: "transform, opacity" }}
     >
+      {/* top accent rule */}
       <span
         className="absolute top-0 left-8 right-8 h-px bg-royal-300 opacity-60"
         aria-hidden="true"
       />
-
+      {/* opening quote */}
       <span
         className="block font-serif text-[4.5rem] leading-none text-royal-200 select-none mb-1 -mt-2"
         aria-hidden="true"
       >
         &ldquo;
       </span>
-
+      {/* body */}
       <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] flex-1">
         {review.text}
       </p>
-
+      {/* footer */}
       <div className="mt-6 pt-5 border-t border-navy-100 flex items-center gap-3">
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-royal-700 text-white text-xs font-semibold tracking-wider uppercase"
@@ -135,26 +156,184 @@ function ReviewCard({ review, index }) {
   );
 }
 
-//
-export function ReviewSection() {
-  const headinRef = useRef(null);
+//Arrow button
+
+function ArrowButton({ direction, onClick, disabled }) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={direction === "prev" ? "Previous reviews" : "Next reviews"}
+      className="w-9 h-9 flex items-center justify-center rounded-sm border
+    border-navy-200 bg-white text-navy-500
+    hover:border-royal-400 hover:text-royal-700 hover:bg-royal-50
+    disabled:opacity-30 disabled:pointer-events-none
+    transition-all duration-150
+    focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royal-500"
+    >
+      {direction === 'prev' ? (
+        <svg
+        className="w-4 h-4"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        aria-hidden="true"
+      >
+        <path d="M10 3L5 8l5 5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      ) : (
+        <svg
+          className="w-4 h-4"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          aria-hidden="true"
+        >
+          <path d="M6 3l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )}
+    </button>
+  );
+}
+
+// Desktop carousel
+function DesktopCarousel({ reviews }) {
+  const [page, setPage] = useState(0);
+  const trackRef = useRef(null);
+
+  const totalPages = Math.ceil(reviews.length / CARDS_PER_PAGE);
+  const canPrev = page > 0;
+  const canNext = page < totalPages - 1;
 
   useEffect(() => {
-    const el = headinRef.current;
-    if (!el) return;
+    if (trackRef.current) {
+      trackRef.current.style.transform =
+      `translateX(calc(${page * -100}% - ${page} * var(--carousel-gap, 1.25rem)))`;
+    }
+  }, [page]);
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("fade-up");
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.2 }
-    );
+  const prev = useCallback(() => setPage((p) => Math.max(0, p-1)), []);
+  const next = useCallback(
+    () => setPage((p) => Math.min(totalPages -1, p + 1)),
+    [totalPages]
+  );
 
-    observer.observe(el);
-    return () => observer.disconnect();
+  return (
+    <div className="hidden md:block">
+      <div className="overflow-hidden">
+        <div
+          ref={trackRef} 
+          className="flex gap-5 lg:gap-6 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+          style={{
+            '--carousel-gap': '1.25rem',
+            willChange: 'transform',
+          }}
+          >
+            {reviews.map((review) => (
+              <div
+              key={review.id}
+              className="
+                flex-none
+                w-[calc((100%-2*1.25rem)/3)]
+                lg:w-[calc((100%-2*1.5rem)/3)]
+              "
+              style={{ "--carousel-gap": "1.5rem" }}
+            >
+              <ReviewCard review={review} />
+            </div>
+            ))}
+        </div>
+      </div>
+
+      {/* Navigation */}
+      {totalPages > 1 && (
+        <div 
+        className="flex items-center justify-center gap-4 mt-8"
+        role="group"
+        aria-label="Carousel navigation"
+        >
+          <ArrowButton direction='prev' onClick={prev} disabled={!canPrev} />
+
+          {/* Dot / pill indicators */}
+          <div className="flex items-center gap-2" role="tablist" aria-label="Review pages">
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <button
+                key={i}
+                role="tab"
+                aria-selected={i === page}
+                aria-label={`Page ${i + 1}`}
+                onClick={() => setPage(i)}
+                className={`
+                  rounded-full transition-all duration-200
+                  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royal-500
+                  ${
+                    i === page
+                      ? "w-5 h-2 bg-royal-600"
+                      : "w-2 h-2 bg-navy-300 hover:bg-navy-400"
+                  }
+                `}
+              />
+            ))}
+          </div>
+
+          <ArrowButton direction='next' onClick={next} disabled={!canNext} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Mobile stack
+function MobileStack({ reviews }) {
+  return (
+    <div className="md:hidden flex flex-col gap-5">
+      {reviews.map((review) => (
+        <ReviewCard key={review.id} review={review} />
+      ))}
+    </div>
+  );
+}
+
+//main export
+export function ReviewSection() {
+  const headingRef = useRef(null);
+  const cardsRef = useRef(null);
+
+  useEffect(() => {
+    const targets = [headingRef.current, cardsRef.current];
+    const observers = targets.map((el, i) => {
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            if (i === 1) el.style.transitionDelay = '80ms';
+            el.classList.add('fade-up');
+            obs.unobserve(el);
+          }
+        },
+        { threshold: i === 0 ? 0.2 : 0.1 }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((o) => o?.disconnect());
+    // const el = headingRef.current;
+    
+
+    // const observer = new IntersectionObserver(
+    //   ([entry]) => {
+    //     if (entry.isIntersecting) {
+    //       el.classList.add("fade-up");
+    //       observer.unobserve(el);
+    //     }
+    //   },
+    //   { threshold: 0.2 }
+    // );
+
+    // observer.observe(el);
+    // return () => observer.disconnect();
   }, []);
 
   return (
@@ -165,7 +344,7 @@ export function ReviewSection() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* section header */}
-        <div ref={headinRef} className="text-center mb-14 opacity-0">
+        <div ref={headingRef} className="text-center mb-14 opacity-0">
           <p className="text-royal-600 text-xs font-semibold tracking-[0.18em] uppercase mb-3">
             Client Testimonials
           </p>
@@ -196,12 +375,19 @@ export function ReviewSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+        {/* Cards */}
+        <div ref={cardsRef} className="opacity-0">
+          <DesktopCarousel reviews={REVIEWS} />
+          <MobileStack reviews={REVIEWS} />
+        </div>
+
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {REVIEWS.map((review, i) => (
             <ReviewCard key={review.id} review={review} index={i} />
           ))}
-        </div>
+        </div> */}
 
+            {/* CTA */}
         <div className="mt-14 flex flex-col items-center gap-3 text-center">
           <a
             href={GOOGLE_REVIEW_URL}
