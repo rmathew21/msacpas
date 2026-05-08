@@ -119,7 +119,7 @@ function ReviewCard({ review }) {
       // ref={cardRef}
       className="
         relative flex flex-col bg-white border border-navy-100
-        rounded-sm p-7 sm:p-8 h-full
+        rounded-sm p-7 sm:p-8 h-full justify-between
         shadow-[0_2px_12px_rgba(10,25,60,0.06)]
         hover:shadow-[0_6px_24px_rgba(10,25,60,0.11)]
         hover:-translate-y-0.5
@@ -156,7 +156,7 @@ function ReviewCard({ review }) {
 
       {/* body */}
 
-      <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] flex-1 -mt-3 ">
+      <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] -mt-3 ">
         {review.text}
       </p>
 
