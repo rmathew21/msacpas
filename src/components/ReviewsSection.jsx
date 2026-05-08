@@ -132,6 +132,19 @@ function ReviewCard({ review }) {
         className="absolute top-0 left-8 right-8 h-px bg-royal-300 opacity-60"
         aria-hidden="true"
       />
+
+      {/* header */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-royal-700 text-white text-xs font-semibold tracking-wider uppercase"
+        aria-hidden='true'
+        >
+          {review.initials}
+        </div>
+        <p className="text-navy-900 font-semibold text-sm tracking-tight leading-snug">
+          {review.name}
+        </p>
+      </div>
+
       {/* opening quote */}
       <span
         className="block font-serif text-[4.5rem] leading-none text-royal-200 select-none mb-1 -mt-2"
@@ -139,36 +152,19 @@ function ReviewCard({ review }) {
       >
         &ldquo;
       </span>
+
       {/* body */}
       <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] flex-1">
         {review.text}
       </p>
+
       {/* footer */}
-      <div className="mt-6 pt-5 border-t border-navy-100 flex items-center gap-3">
-        <div
-          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-royal-700 text-white text-xs font-semibold tracking-wider uppercase"
-          aria-hidden="true"
-        >
-          {review.initials}
-        </div>
-        {/* name */}
-        <div className="flex-1 min-w-0">
-          <p className="text-navy-900 font-semibold text-sm tracking-tight leading-snug truncate">
-            {review.name}
-          </p>
-          <p className="text-navy-400 text-xs tracking-widest uppercase mt-0.5 font-medium">
+      <div className="mt-6 pt-5 border-t border-navy-100 flex items-center justify-between">
+          <p className="text-navy-400 text-xs tracking-widest uppercase font-medium">
             {review.date}
           </p>
-        </div>
-        {/* Stars - right-aligned on desktop */}
-        <div className="hidden sm:flex ml-auto">
           <StarRating count={review.rating} />
         </div>
-      </div>
-      {/* Stars - below name on small screens */}
-      <div className="sm:hidden mt-3">
-        <StarRating count={review.rating} />
-      </div>
     </article>
   );
 }
