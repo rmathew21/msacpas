@@ -135,8 +135,9 @@ function ReviewCard({ review }) {
 
       {/* header */}
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-royal-700 text-white text-xs font-semibold tracking-wider uppercase"
-        aria-hidden='true'
+        <div
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-royal-700 text-white text-xs font-semibold tracking-wider uppercase"
+          aria-hidden="true"
         >
           {review.initials}
         </div>
@@ -147,24 +148,32 @@ function ReviewCard({ review }) {
 
       {/* opening quote */}
       <span
-        className="block font-serif text-[4.5rem] leading-none text-royal-200 select-none mb-1 -mt-2"
+        className="block font-serif text-[3.5rem] leading-none text-royal-200 select-none mb-0 -mt-0"
         aria-hidden="true"
       >
         &ldquo;
       </span>
 
       {/* body */}
-      <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] flex-1">
+
+      <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] flex-1 -mt-3 ">
         {review.text}
       </p>
 
+      <span
+        className="block text-right font-serif text-[3.5rem] leading-none text-royal-200 select-none align-bottom ml-1"
+        aria-hidden="true"
+      >
+        &rdquo;
+      </span>
+
       {/* footer */}
       <div className="mt-6 pt-5 border-t border-navy-100 flex items-center justify-between">
-          <p className="text-navy-400 text-xs tracking-widest uppercase font-medium">
-            {review.date}
-          </p>
-          <StarRating count={review.rating} />
-        </div>
+        <p className="text-navy-400 text-xs tracking-widest uppercase font-medium">
+          {review.date}
+        </p>
+        <StarRating count={review.rating} />
+      </div>
     </article>
   );
 }
@@ -184,17 +193,21 @@ function ArrowButton({ direction, onClick, disabled }) {
     transition-all duration-150
     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-royal-500"
     >
-      {direction === 'prev' ? (
+      {direction === "prev" ? (
         <svg
-        className="w-4 h-4"
-        viewBox="0 0 16 16"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        aria-hidden="true"
-      >
-        <path d="M10 3L5 8l5 5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+          className="w-4 h-4"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          aria-hidden="true"
+        >
+          <path
+            d="M10 3L5 8l5 5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       ) : (
         <svg
           className="w-4 h-4"
@@ -222,14 +235,15 @@ function DesktopCarousel({ reviews }) {
 
   useEffect(() => {
     if (trackRef.current) {
-      trackRef.current.style.transform =
-      `translateX(calc(${page * -100}% - ${page} * var(--carousel-gap, 1.25rem)))`;
+      trackRef.current.style.transform = `translateX(calc(${
+        page * -100
+      }% - ${page} * var(--carousel-gap, 1.25rem)))`;
     }
   }, [page]);
 
-  const prev = useCallback(() => setPage((p) => Math.max(0, p-1)), []);
+  const prev = useCallback(() => setPage((p) => Math.max(0, p - 1)), []);
   const next = useCallback(
-    () => setPage((p) => Math.min(totalPages -1, p + 1)),
+    () => setPage((p) => Math.min(totalPages - 1, p + 1)),
     [totalPages]
   );
 
@@ -237,15 +251,15 @@ function DesktopCarousel({ reviews }) {
     <div className="hidden md:block">
       <div className="overflow-hidden">
         <div
-          ref={trackRef} 
+          ref={trackRef}
           className="flex gap-5 lg:gap-6 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
           style={{
-            '--carousel-gap': '1.25rem',
-            willChange: 'transform',
+            "--carousel-gap": "1.25rem",
+            willChange: "transform",
           }}
-          >
-            {reviews.map((review) => (
-              <div
+        >
+          {reviews.map((review) => (
+            <div
               key={review.id}
               className="
                 flex-none
@@ -256,21 +270,25 @@ function DesktopCarousel({ reviews }) {
             >
               <ReviewCard review={review} />
             </div>
-            ))}
+          ))}
         </div>
       </div>
 
       {/* Navigation */}
       {totalPages > 1 && (
-        <div 
-        className="flex items-center justify-center gap-4 mt-8"
-        role="group"
-        aria-label="Carousel navigation"
+        <div
+          className="flex items-center justify-center gap-4 mt-8"
+          role="group"
+          aria-label="Carousel navigation"
         >
-          <ArrowButton direction='prev' onClick={prev} disabled={!canPrev} />
+          <ArrowButton direction="prev" onClick={prev} disabled={!canPrev} />
 
           {/* Dot / pill indicators */}
-          <div className="flex items-center gap-2" role="tablist" aria-label="Review pages">
+          <div
+            className="flex items-center gap-2"
+            role="tablist"
+            aria-label="Review pages"
+          >
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
@@ -291,7 +309,7 @@ function DesktopCarousel({ reviews }) {
             ))}
           </div>
 
-          <ArrowButton direction='next' onClick={next} disabled={!canNext} />
+          <ArrowButton direction="next" onClick={next} disabled={!canNext} />
         </div>
       )}
     </div>
@@ -321,8 +339,8 @@ export function ReviewSection() {
       const obs = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            if (i === 1) el.style.transitionDelay = '80ms';
-            el.classList.add('fade-up');
+            if (i === 1) el.style.transitionDelay = "80ms";
+            el.classList.add("fade-up");
             obs.unobserve(el);
           }
         },
@@ -333,7 +351,6 @@ export function ReviewSection() {
     });
     return () => observers.forEach((o) => o?.disconnect());
     // const el = headingRef.current;
-    
 
     // const observer = new IntersectionObserver(
     //   ([entry]) => {
@@ -400,7 +417,7 @@ export function ReviewSection() {
           ))}
         </div> */}
 
-            {/* CTA */}
+        {/* CTA */}
         <div className="mt-14 flex flex-col items-center gap-3 text-center">
           <a
             href={GOOGLE_REVIEW_URL}
