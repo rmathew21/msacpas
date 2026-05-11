@@ -92,7 +92,7 @@ function StarRating({ count = 5 }) {
 }
 
 // review card
-function ReviewCard({ review }) {
+// function ReviewCard({ review }) {
   // const cardRef = useRef(null);
 
   // useEffect(() => {
@@ -114,6 +114,19 @@ function ReviewCard({ review }) {
   //   return () => observer.disconnect();
   // }, [index]);
 
+  const MAX_CHARS = 160;
+
+  function ReviewCard({ review }) {
+    const isLong = review.text.length > MAX_CHARS;
+    const [expanded, setExpanded] = useState(false);
+
+    const displayText = 
+    isLong && !expanded
+    ? review.text.slice(0, MAX_CHARS).trimEnd() + "..."
+    : review.text;
+
+
+  
   return (
     <article
       // ref={cardRef}
@@ -155,18 +168,22 @@ function ReviewCard({ review }) {
       </span>
 
       {/* body */}
-
-      <p className="text-navy-700 text-[0.9375rem] leading-relaxed font-light tracking-[0.005em] -mt-3 ">
-        {review.text}
+    <div className="-mt-3">
+      <p className="text-navy-700 text-sm leading-relaxed font-light tracking-[0.005em]">
+        {displayText}
       </p>
+      {isLong && (
+        <button onClick={() => setExpanded((e) => !e)} className="mt-1.5 text-royal-600 hover:text-royal-800 text-xs font-medium tracking-wide transition-colors duration-150">
+          {expanded ? 'Less' : 'More'}
+        </button>
+      )}
+    </div>
 
-      <span
-        className="block text-right font-serif text-[3.5rem] leading-none text-royal-200 select-none align-bottom ml-1"
-        aria-hidden="true"
-      >
+    <span className="block text-right font-serif text-[3.5rem] leading-none text-royal-200 select-none align-bottom ml-1" aria-hidden='true'>
         &rdquo;
-      </span>
-
+    </span>
+      
+      
       {/* footer */}
       <div className="mt-6 pt-5 border-t border-navy-100 flex items-center justify-between">
         <p className="text-navy-400 text-xs tracking-widest uppercase font-medium">
@@ -466,5 +483,6 @@ export function ReviewSection() {
     </section>
   );
 }
+
 
 export default ReviewSection;
