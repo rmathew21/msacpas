@@ -245,10 +245,16 @@ function ArrowButton({ direction, onClick, disabled }) {
 function DesktopCarousel({ reviews }) {
   const [page, setPage] = useState(0);
   const trackRef = useRef(null);
+  const containerRef = useRef(null);
 
   const totalPages = Math.ceil(reviews.length / CARDS_PER_PAGE);
   const canPrev = page > 0;
   const canNext = page < totalPages - 1;
+
+  const prev = useCallback(() => setPage((p) => Math.max(0, p-1)), []);
+  const next = useCallback(() => setPage((p) => Math.min(totalPages -1, p+1)),
+  [totalPages]
+  );
 
   useEffect(() => {
     if (trackRef.current) {
@@ -258,14 +264,54 @@ function DesktopCarousel({ reviews }) {
     }
   }, [page]);
 
-  const prev = useCallback(() => setPage((p) => Math.max(0, p - 1)), []);
-  const next = useCallback(
-    () => setPage((p) => Math.min(totalPages - 1, p + 1)),
-    [totalPages]
-  );
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    let lastWheelTime = 0;
+    const WHEEL_DEBOUNCE = 600;
+
+    const handleWheel = (e) => {
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : null;
+      if (delta === null || Math.abs(delta) < 20) return;
+      const now = Date.now();
+      if (now - lastWheelTime < WHEEL_DEBOUNCE) { e.preventDefault(); return; }
+      lastWheelTime = now;
+      e.preventDefault();
+      delta > 0 ? next() : prev();
+    };
+
+    let touchStartX = null;
+    const handleTouchStart = (e) => { touchStartX = e.touches[0].clientX; };
+    const handleTouchEnd = (e) => {
+      if (touchStartX === null) return;
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+      touchStartX = null;
+    }
+
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    el.addEventListener('touchstart', handleTouchStart, { passive: true });
+    el.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    return () => {
+      el.removeEventListener('wheel', handleWheel);
+      el.removeEventListener('touchstart', handleTouchStart);
+      el.removeEventListener('touchend', handleTouchEnd);
+    };
+}, [next, prev]);
+
+  // const prev = useCallback(() => setPage((p) => Math.max(0, p - 1)), []);
+  // const next = useCallback(
+  //   () => setPage((p) => Math.min(totalPages - 1, p + 1)),
+  //   [totalPages]
+  // );
+
+
+  // const containerRef = useRef(null);
 
   return (
-    <div className="hidden md:block">
+    <div ref={containerRef} className="hidden md:block">
       <div className="overflow-hidden">
         <div
           ref={trackRef}
@@ -350,6 +396,7 @@ export function ReviewSection() {
   const cardsRef = useRef(null);
 
   useEffect(() => {
+    
     const targets = [headingRef.current, cardsRef.current];
     const observers = targets.map((el, i) => {
       if (!el) return null;
