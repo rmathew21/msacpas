@@ -268,17 +268,27 @@ function DesktopCarousel({ reviews }) {
     const el = containerRef.current;
     if (!el) return;
 
-    let lastWheelTime = 0;
-    const WHEEL_DEBOUNCE = 600;
+    let accumulated = 0;
+    let isLocked = false;
 
     const handleWheel = (e) => {
-      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : null;
-      if (delta === null || Math.abs(delta) < 20) return;
-      const now = Date.now();
-      if (now - lastWheelTime < WHEEL_DEBOUNCE) { e.preventDefault(); return; }
-      lastWheelTime = now;
-      e.preventDefault();
-      delta > 0 ? next() : prev();
+    //  horizontal scrolling
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault();
+
+    accumulated += e.deltaX;
+
+    // trigger once threshold is crossed
+    if (!isLocked && Math.abs(accumulated) > 50) {
+      isLocked = true;
+      accumulated > 0 ? next(): prev();
+
+      // unlock after momentum dies down
+      setTimeout(() => {
+        accumulated = 0;
+        isLocked = false;
+      }, 800);
+    }
     };
 
     let touchStartX = null;
@@ -286,9 +296,9 @@ function DesktopCarousel({ reviews }) {
     const handleTouchEnd = (e) => {
       if (touchStartX === null) return;
       const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+      if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
       touchStartX = null;
-    }
+    };
 
     el.addEventListener('wheel', handleWheel, { passive: false });
     el.addEventListener('touchstart', handleTouchStart, { passive: true });
