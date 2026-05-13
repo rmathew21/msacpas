@@ -1,10 +1,12 @@
 import { useCallback, useState, useEffect, useRef } from "react";
+import { FaYelp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const REVIEWS = [
   {
     id: 1,
     name: "Paulose Achayan",
+    platform: "google",
     rating: 5,
     date: "11 years ago",
     initials: "PA",
@@ -13,6 +15,7 @@ const REVIEWS = [
   {
     id: 2,
     name: "Sahara Health",
+    platform: "google",
     rating: 5,
     date: "8 years ago",
     initials: "SH",
@@ -21,6 +24,7 @@ const REVIEWS = [
   {
     id: 3,
     name: "Asim Abbasi",
+    platform: "google",
     rating: 5,
     date: "6 years ago",
     initials: "AA",
@@ -29,6 +33,7 @@ const REVIEWS = [
   {
     id: 4,
     name: "Ash Rashid",
+    platform: "google",
     rating: 5,
     date: "7 years ago",
     initials: "AR",
@@ -37,6 +42,7 @@ const REVIEWS = [
   {
     id: 5,
     name: "Pramod Kumar",
+    platform: "google",
     rating: 5,
     date: "7 years ago",
     initials: "PK",
@@ -45,6 +51,7 @@ const REVIEWS = [
   {
     id: 6,
     name: "Navid Zanjani",
+    platform: "google",
     rating: 5,
     date: "7 years ago",
     initials: "NZ",
@@ -53,10 +60,29 @@ const REVIEWS = [
   {
     id: 7,
     name: "Monica Hita",
+    platform: "google",
     rating: 5,
     date: "7 years ago",
     initials: "MH",
     text: "Really happy with the service received, fast and professional.",
+  },
+  {
+    id: 8,
+    name: "Banerji P.",
+    platform: "yelp",
+    rating: 5,
+    date: "10 years ago",
+    initials: "BP",
+    text: "Mathews Samuel & Associates is a wonderful CPA firm. Mr Samuel has handled our taxes for the last couple of years and has done a great job. He is very knowledgeable about different tax credits and works to get us the best possible outcome for our annual tax return with very reasonable rate. I highly recommend this firm to all of my friends and colleagues.",
+  },
+  {
+    id: 9,
+    name: "Enfield B.",
+    platform: "yelp",
+    rating: 5,
+    date: "11 years ago",
+    initials: "EB",
+    text: "Samuel is great. Nice, professional, and makes you feel like you understand finances just as well as he does. I really appreciate people who take the time to explain their work to you so you can understand better and build a great rapport with them. My company's books from 2013 seemed impossible to resolve, but he did a great job at cleaning them up and helping me make better decisions to manage the accounting for the small business I work at. I now feel much more confident that by working with Mathew - Samuel Associates, I will not have even the slightest accounting problem come 2015 tax filing season. If you want professional, courteous accounting you don't need all the bells and whistles of these new startups that - and I speak from personal experience - cannot give you the customer service that Samuel does.Thanks, Samuel! We are looking forward to working with you in the future.",
   },
 ];
 
@@ -66,6 +92,26 @@ const GOOGLE_REVIEW_URL =
 
 // how many cards visible at one time - desktop
 const CARDS_PER_PAGE = 3;
+
+// review platform
+function PlatformLogo({ platform }) {
+  if (platform === 'google') {
+    return (
+      <svg viewBox="0 0 24 24" className="w-4 h-4" aria-label="Google review" role="img">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+    );
+  }
+
+  if (platform === 'yelp') {
+    // return <FaYelp className='w-4 h-4 text-[#FF1A1A]' aria-label='Yelp review' />;
+    return <FaYelp style={{ width: '1rem', height: '1rem', color: '#FF1A1A' }} aria-label="Yelp review" />
+  }
+  return null;
+}
 
 // star rating
 function StarRating({ count = 5 }) {
@@ -154,9 +200,10 @@ function StarRating({ count = 5 }) {
         >
           {review.initials}
         </div>
-        <p className="text-navy-900 font-semibold text-sm tracking-tight leading-snug">
+        <p className="text-navy-900 font-semibold text-sm tracking-tight leading-snug flex-1">
           {review.name}
         </p>
+        <PlatformLogo platform={review.platform} />
       </div>
 
       {/* opening quote */}
