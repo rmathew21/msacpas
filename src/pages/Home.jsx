@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import aboutImg from "../assets/RajuSamuel.jpg";
 import { ReviewSection } from "../components/ReviewsSection";
+import GoogleReviews from "../components/GoogleReviews";
 
 const services = [
   {
@@ -304,7 +305,9 @@ export default function Home() {
         </div>
       </section>
 
-      <ReviewSection />
+      {/* <ReviewSection /> */}
+
+      <GoogleReviews />
 
       {/* CTA Banner */}
       <section className="bg-royal-700 text-white py-20 px-6">

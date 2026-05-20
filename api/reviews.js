@@ -27,7 +27,7 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'Missing environment variables' });
     }
 
-    const url = 'https://places.googleapis.com/v1/places/${PLACE_ID}';
+    const url = 'https://places.googleapis.com/v1/places/ChIJFxxqvdvnQIYRe31HaJUY5NM';
 
     try {
         const response = await fetch(url,{
