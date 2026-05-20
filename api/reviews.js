@@ -48,7 +48,7 @@ export default async function handler(req, res) {
         const data = await response.json();
 
         const reviews = (data.reviews || [])
-        .filter(r => r.rating >= 4)
+        // .filter(r => r.rating >= 4)
         .slice(0, 5)
         .map(r => ({
             author_name: r.authorAttribution?.displayName || 'Anonymous',
