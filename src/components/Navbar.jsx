@@ -6,6 +6,7 @@ import logo3 from '../assets/msacpaLogo3.svg';
 import logo4 from '../assets/msacpaLogo4.svg';
 import logo5 from '../assets/msacpaLogo5.svg';
 import logo6 from '../assets/msacpaLogo6.svg';
+import logo7 from '../assets/msacpaLogo7.svg';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/">
-            <img src={logo5} alt="Samuel CPA logo" className='h-10 md:h-12 w-auto' />
+            <img src={logo6} alt="Samuel CPA logo" className='h-10 md:h-12 w-auto' />
           </Link>
 
           {/* <Link to="/" className="flex flex-col leading-none">
