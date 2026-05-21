@@ -168,7 +168,7 @@ export default function Contact() {
                       name="subject"
                       value={form.subject}
                       onChange={handleChange}
-                      className="w-full border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-royal-500 transition-colors text-gray-700"
+                      className="w-full border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-royal-500 transition-colors text-gray-700 appearance-none h-[46px] "
                     >
                       <option value="">Select a topic...</option>
                       <option>Tax Preparation</option>
