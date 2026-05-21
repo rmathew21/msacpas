@@ -82,7 +82,7 @@ export default function Home() {
         <div className="relative max-w-6xl mx-auto px-6 py-32 md:py-40">
           <div className="max-w-3xl mx-auto md:mx-0">
             <p className="text-royal-300 text-xs tracking-[0.35em] uppercase mb-8 fade-up text-center md:text-left">
-              Stafford, Texas · Since 2013
+              CPA &amp; Tax Services in Stafford, Texas 
             </p>
             <h1 className="text-navy-50 text-5xl md:text-7xl font-serif font-bold leading-tight mb-8 fade-up delay-1 text-center md:text-left">
               Proactive Accounting
