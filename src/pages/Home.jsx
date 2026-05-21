@@ -156,7 +156,7 @@ export default function Home() {
               What We Do
             </p>
             <h2 className="text-4xl md:text-5xl font-serif text-navy-600">
-              Our Focus
+              CPA & Tax Services
             </h2>
           </div>
 
@@ -254,9 +254,9 @@ export default function Home() {
               About Samuel CPA
             </p>
             <h2 className="text-4xl font-serif text-navy-600 mb-6 leading-tight text-center md:text-left">
-              Trusted Advisors.
+              Stafford's Trusted CPA
               <br />
-              Real Results.
+              Since 2013
             </h2>
             <div className="w-12 h-px bg-royal-600 mb-6 mx-auto md:mx-0" />
             <p className="text-gray-700 leading-relaxed mb-6 text-center md:text-left">
@@ -313,18 +313,18 @@ export default function Home() {
       <section className="bg-royal-700 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-navy-50 text-3xl md:text-4xl font-serif mb-6">
-            Get in Touch
+            Schedule a Free Consultation with a Stafford CPA
           </h2>
           <p className="text-royal-100 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Whether you need help with tax planning, business consulting, or
-            financial reporting, our experienced team is ready to assist. Reach
+            Whether you need help with tax preparation, business advisory services, or
+            financial reporting, we are ready to assist. Reach
             out today to schedule a free consultation.
           </p>
           <Link
             to="/contact"
             className="inline-block bg-white text-royal-800 px-10 py-4 text-xs tracking-widest uppercase font-medium hover:bg-royal-50 transition-colors"
           >
-            Contact Us Today
+            Book My Consultation
           </Link>
         </div>
       </section>
