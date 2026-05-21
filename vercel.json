@@ -1,7 +1,24 @@
-{ 
+{
   "devCommand": "vite",
-    "rewrites": [
-      { "source": "/api/(.*)", "destination": "/api/$1" }, 
-      { "source": "/(.*)", "destination": "/index.html" }
-    ]
-  }
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "msacpas.vercel.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}
