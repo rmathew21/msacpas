@@ -34,10 +34,10 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm border-b border-slate-200' : 'bg-white'}`}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-24 md:h-24">
           {/* Logo */}
           <Link to="/">
-            <img src={logo6} alt="Samuel CPA logo" className='h-10 md:h-12 w-auto' />
+            <img src={logo6} alt="Samuel CPA logo" className='h-14 md:h-14 w-auto' />
           </Link>
 
           {/* <Link to="/" className="flex flex-col leading-none">
