@@ -3,13 +3,33 @@ import { useState } from 'react';
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Form submission placeholder — connect to backend/email service as needed
-    setSubmitted(true);
+    setSubmitting(true);
+    setError('');
+
+    try {
+      const res = await fetch('https://formspree.io/f/mlgvbllp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError('Something went wrong. Please try again or call us directly.');
+      }
+    } catch {
+      setError('Something went wrong. Please try again or call us directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -179,10 +199,15 @@ export default function Contact() {
 
                 <button
                   type="submit"
+                  disabled={submitting}
                   className="w-full bg-royal-700 hover:bg-royal-800 text-white py-4 text-xs tracking-widest uppercase font-medium transition-colors"
                 >
-                  Send Message
+                  {submitting ? 'Sending...' : 'Send Message'}
                 </button>
+
+                {error && (
+                  <p className="text-xs text-red-500 text-center">{error}</p>
+                )}
 
                 <p className="text-xs text-gray-400 text-center">
                   Or call us directly at <a href="tel:2815649500" className="text-royal-600 hover:underline">(281) 564-9500</a>
