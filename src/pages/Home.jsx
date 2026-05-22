@@ -65,7 +65,7 @@ export default function Home() {
     <>
       <SEO
         title="CPA & Tax Services in Stafford, TX | Samuel CPA, PLLC"
-        description="Proactive accounting and tax services for small businesses and individuals in the Houston area. Samuel CPA, PLLC has served clients since 2013."
+        description="CPA in Stafford, TX offering tax preparation, accounting & business advisory for individuals and small businesses across Houston. Serving clients since 2013."
         path="/"
       />
       <div>
