@@ -86,14 +86,14 @@ export default function About() {
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-4">Who We Are</p>
             <h2 className="text-3xl font-serif text-navy-600 mb-8 leading-tight">
-              Trusted Financial Partners Since 2013
+              Serving the Greater Houston Area since 2013
             </h2>
             <div className="prose prose-sm text-gray-700 leading-relaxed space-y-5">
               <p>
                 Based in Stafford, Texas, Samuel CPA PLLC has been providing reliable, personalized CPA services to individuals and small businesses across the Houston region since 2013. What started as a commitment to serving the local community has grown into a trusted practice built on results, relationships, and professional excellence.
               </p>
               <p>
-                We specialize in tax preparation, accounting, and financial consulting—helping our clients navigate complex financial decisions with confidence. Our approach is always personal: we take the time to understand your unique situation, your goals, and the challenges you face—so we can provide advice that's genuinely useful.
+              Our work centers on tax preparation, accounting, and financial consulting, giving clients clarity and confidence in their most important financial decisions. Our approach is always personal: we take the time to understand your unique situation, your goals, and the challenges you face—so we can provide advice that's genuinely useful.
               </p>
               <p>
                 Whether you're a small business owner navigating quarterly filings, an entrepreneur setting up a new entity, or an individual looking to minimize your tax burden, our team brings deep expertise and attention to detail to every engagement.

@@ -260,7 +260,7 @@ export default function Home() {
             </h2>
             <div className="w-12 h-px bg-royal-600 mb-6 mx-auto md:mx-0" />
             <p className="text-gray-700 leading-relaxed mb-6 text-center md:text-left">
-              Based in Stafford, Texas, Samuel CPA PLLC has been serving
+              Samuel CPA PLLC has been serving
               individuals and small businesses since 2013. We specialize in tax
               preparation, accounting, and financial consulting—helping our
               clients navigate complex financial decisions with confidence.
