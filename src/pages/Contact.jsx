@@ -1,4 +1,32 @@
 import { useState } from 'react';
+import SEO from '../components/SEO';
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Samuel CPA, PLLC",
+  "description": "CPA firm in Stafford, TX providing tax preparation, accounting, and business advisory services to individuals and small businesses across the Greater Houston area.",
+  "url": "https://msacpas.com/contact",
+  "telephone": "(281) 564-9500",
+  "email": "samuel@msacpas.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "11104 West Airport Blvd, Suite 114",
+    "addressLocality": "Stafford",
+    "addressRegion": "TX",
+    "postalCode": "77477",
+    "addressCountry": "US"
+  },
+  "areaServed": "Greater Houston, TX",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:30",
+      "closes": "17:30"
+    }
+  ]
+};
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
@@ -34,6 +62,12 @@ export default function Contact() {
 
   return (
     <div className="pt-16 md:pt-20">
+      <SEO
+        title="Contact a Stafford, TX CPA | Samuel CPA, PLLC"
+        description="Schedule a free consultation with Samuel CPA, PLLC in Stafford, TX. Call (281) 564-9500 or reach out online."
+        path="/contact"
+        schema={contactSchema}
+      />
       {/* Hero */}
       <section className="bg-royal-600 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
@@ -91,11 +125,11 @@ export default function Contact() {
                 <div className="text-sm text-gray-700 space-y-2">
                   <div className="flex justify-between max-w-xs">
                     <span>Monday – Friday</span>
-                    <span className="text-royal-700 font-medium">9:00 AM – 5:00 PM</span>
+                    <span className="text-royal-700 font-medium">9:30 AM – 5:30 PM</span>
                   </div>
                   <div className="flex justify-between max-w-xs">
                     <span>Saturday</span>
-                    <span className="text-gray-500">By Appointment</span>
+                    <span className="text-gray-500">Closed</span>
                   </div>
                   <div className="flex justify-between max-w-xs">
                     <span>Sunday</span>

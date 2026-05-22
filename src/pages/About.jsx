@@ -1,5 +1,26 @@
 import { Link } from 'react-router-dom'; 
+import SEO from '../components/SEO';
 import aboutImg from '../assets/RajuSamuel.jpg';
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Samuel CPA, PLLC",
+  "description": "CPA firm in Stafford, TX providing tax preparation, accounting, and business advisory services across the Houston region since 2013.",
+  "foundingDate": "2013",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "11104 West Airport Blvd, Suite 114",
+    "addressLocality": "Stafford",
+    "addressRegion": "TX",
+    "postalCode": "77477",
+    "addressCountry": "US"
+  },
+  "telephone": "(281) 564-9500",
+  "email": "samuel@msacpas.com",
+  "url": "https://msacpas.com/about",
+  "areaServed": "Greater Houston, TX"
+};
 
 const values = [
   {
@@ -23,6 +44,12 @@ const values = [
 export default function About() {
   return (
     <div className="pt-16 md:pt-20">
+      <SEO 
+        title="About Our Stafford, TX CPA Firm | Samuel CPA, PLLC"
+        description="Meet Raju Samuel, CPA, CMA. Learn about our Stafford-based CPA firm serving individuals and small businesses across Greater Houston since 2013."
+        path='/about'
+        schema={aboutSchema}
+      />
       {/* Hero */}
       <section className="bg-royal-600 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">

@@ -1,4 +1,54 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Samuel CPA, PLLC",
+  "description": "Tax preparation, accounting, and business advisory services for individuals and small businesses across the Greater Houston area.",
+  "url": "https://msacpas.com/services",
+  "telephone": "(281) 564-9500",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "11104 West Airport Blvd, Suite 114",
+    "addressLocality": "Stafford",
+    "addressRegion": "TX",
+    "postalCode": "77477",
+    "addressCountry": "US"
+  },
+  "areaServed": "Greater Houston, TX",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "CPA & Accounting Services",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Tax Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Individual & Business Tax Preparation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Strategic Tax Planning" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IRS Audit Representation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Foreign Income & Asset Reporting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "FBAR Compliance" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Expatriate Tax Preparation" } }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Business Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Small Business Accounting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Payroll Processing & Compliance" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Part-Time CFO Services" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "New Business Formation & Entity Selection" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Support for Nonprofit Organizations" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Internal Controls Review & Implementation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cost Report Preparation (Medicare)" } }
+        ]
+      }
+    ]
+  }
+};
 
 const taxServices = [
   {
@@ -90,15 +140,21 @@ function ServiceCard({ title, desc }) {
 export default function Services() {
   return (
     <div className="pt-16 md:pt-20">
+      <SEO 
+        title="Tax Preparation & Accounting Services | Samuel CPA, PLLC"
+        description="Comprehensive tax preparation, accounting, and business advisory services for Houston-area individuals and small businesses."
+        path="/services"
+        schema={servicesSchema}
+      />
       {/* Hero */}
       <section className="bg-royal-600 text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-royal-300 text-xs tracking-[0.3em] uppercase mb-4">What We Offer</p>
           <h1 className="text-navy-50 text-5xl md:text-6xl font-serif font-bold leading-tight max-w-2xl">
-            Areas of Focus
+          Tax Preparation & Accounting Services
           </h1>
           <p className="text-gray-300 mt-6 max-w-xl leading-relaxed">
-            From individual tax returns to full-service business accounting, we offer a comprehensive suite of services designed to meet your needs at every stage.
+            From individual tax returns to full-service business accounting, we offer a comprehensive suite of services designed to meet your needs at every stage, serving individuals and businesses across the Greater Houston area.
           </p>
           <div className="w-16 h-px bg-royal-300 mt-8" />
         </div>
@@ -144,7 +200,7 @@ export default function Services() {
               {/* <p className="text-xs tracking-[0.3em] uppercase text-royal-600 mb-2">Category 02</p> */}
               <h2 className="text-3xl md:text-4xl font-serif text-navy-600">Business Services</h2>
             </div>
-            <div className="flex-1 h-px bg-slate-100 hidden md:block" />
+            <div className="flex-1 h-px bg-royal-100 hidden md:block" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {businessServices.map((s, i) => <ServiceCard key={i} {...s} />)}
